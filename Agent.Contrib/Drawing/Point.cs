@@ -3,7 +3,7 @@ using Microsoft.SPOT;
 
 namespace Agent.Contrib.Drawing
 {
-    public class Point
+    public class Point : IPoint
     {
         
         public Point(int x, int y) 

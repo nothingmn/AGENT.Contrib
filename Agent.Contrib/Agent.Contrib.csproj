@@ -30,12 +30,17 @@
   </PropertyGroup>
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
+    <Compile Include="Communication\IChannel.cs" />
+    <Compile Include="Drawing\IPoint.cs" />
+    <Compile Include="Face\IWatchFace.cs" />
     <Compile Include="GeoLocation\ICoordinate.cs" />
     <Compile Include="GeoLocation\IPosition.cs" />
+    <Compile Include="Hardware\ButtonDirection.cs" />
     <Compile Include="Hardware\ButtonHelper.cs" />
     <Compile Include="Face\IFace.cs" />
     <Compile Include="Face\WatchFace.cs" />
     <Compile Include="Drawing\Point.cs" />
+    <Compile Include="Hardware\Buttons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

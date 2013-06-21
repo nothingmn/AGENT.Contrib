@@ -5,23 +5,15 @@ using Microsoft.SPOT.Hardware;
 
 namespace Agent.Contrib.Hardware
 {
-    public enum Buttons
-    {
-        TopLeft = 0,
-        BottomLeft = 1,
-        TopRight = 2,
-        MiddleRight = 3,
-        BottomRight = 4
-    }
 
-    public enum ButtonDirection
-    {
-        Down = 0,
-        Up = 1
-    }
-
+    /// <summary>
+    /// A simple class to abstract away the use of InterruptPorts (aka Buttons) for Projects
+    /// It also handles multi-subscriber scenarios.
+    /// Usage:  ButtonHelper.Current.OnButtonPress+=...
+    /// </summary>
     public class ButtonHelper
     {
+
         private static object _lock = new object();
         private static ButtonHelper current;
 
@@ -38,11 +30,8 @@ namespace Agent.Contrib.Hardware
         }
 
         public delegate void ButtonPress(Buttons button, InterruptPort port, ButtonDirection direction, DateTime time);
-
         public event ButtonPress OnButtonPress;
-
         private ArrayList buttonPorts = new ArrayList();
-
 
         private ButtonHelper()
         {

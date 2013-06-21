@@ -4,7 +4,7 @@ using Microsoft.SPOT;
 
 namespace Agent.Contrib.Face
 {
-    public class WatchFace
+    public class WatchFace : IWatchFace
     {
         public IFace Face { get; set; }
         public Bitmap Screen { get; set; }

@@ -8,10 +8,14 @@ namespace Agent.Contrib.Face
     {
         public IFace Face { get; set; }
         public Bitmap Screen { get; set; }
-        public WatchFace(IFace face)
+
+        public WatchFace(IFace face, Bitmap screen = null)
         {
             Face = face;
+            if(screen == null) screen = new Bitmap(Bitmap.MaxWidth, Bitmap.MaxHeight);
+            Screen = screen;
         }
+
         public void Start()
         {
             if (Face == null) throw new ArgumentNullException("Face cannot be null");

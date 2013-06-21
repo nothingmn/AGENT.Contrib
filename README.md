@@ -59,3 +59,6 @@ namespace BasicWatchFace
 
 ```
 
+Build and run!
+
+

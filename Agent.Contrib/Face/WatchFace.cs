@@ -10,7 +10,7 @@ namespace Agent.Contrib.Face
         public Bitmap Screen { get; set; }
 
         public WatchFace(IFace face, Bitmap screen = null)
-        {
+        {            
             Face = face;
             if(screen == null) screen = new Bitmap(Bitmap.MaxWidth, Bitmap.MaxHeight);
             Screen = screen;

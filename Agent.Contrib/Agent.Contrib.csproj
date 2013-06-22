@@ -32,11 +32,13 @@
   <ItemGroup>
     <Compile Include="AGENT.cs" />
     <Compile Include="Communication\IChannel.cs" />
+    <Compile Include="Convert\Parse.cs" />
     <Compile Include="Drawing\Drawing.cs" />
     <Compile Include="Drawing\Size.cs" />
     <Compile Include="Face\IWatchFace.cs" />
     <Compile Include="GeoLocation\ICoordinate.cs" />
     <Compile Include="GeoLocation\IPosition.cs" />
+    <Compile Include="Hardware\Battery.cs" />
     <Compile Include="Hardware\ButtonDirection.cs" />
     <Compile Include="Hardware\ButtonHelper.cs" />
     <Compile Include="Face\IFace.cs" />
@@ -44,6 +46,7 @@
     <Compile Include="Drawing\Point.cs" />
     <Compile Include="Hardware\Buttons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.Graphics" />

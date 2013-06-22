@@ -7,6 +7,8 @@ namespace Agent.Contrib.Communication
     {
         string Name { get; set; }
         bool Connect();
+        void Close();
+        void Dispose();
         byte[] Receive();
         void Send(byte[] data);
         bool IsOpen { get; set; }

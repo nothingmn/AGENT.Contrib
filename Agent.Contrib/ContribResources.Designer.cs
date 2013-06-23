@@ -25,6 +25,10 @@ namespace Agent.Contrib
                 return ContribResources.manager;
             }
         }
+        internal static Microsoft.SPOT.Font GetFont(ContribResources.FontResources id)
+        {
+            return ((Microsoft.SPOT.Font)(Microsoft.SPOT.ResourceUtility.GetObject(ResourceManager, id)));
+        }
         internal static byte[] GetBytes(ContribResources.BinaryResources id)
         {
             return ((byte[])(Microsoft.SPOT.ResourceUtility.GetObject(ResourceManager, id)));
@@ -36,6 +40,11 @@ namespace Agent.Contrib
             VoiceMail = -11536,
             Time = 3642,
             Mail = 18150,
+        }
+        [System.SerializableAttribute()]
+        internal enum FontResources : short
+        {
+            small = 13070,
         }
     }
 }

@@ -124,6 +124,9 @@
   <data name="Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Mail.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\small.tinyfnt;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="Time" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Time.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>

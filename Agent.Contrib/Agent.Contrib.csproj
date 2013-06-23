@@ -37,6 +37,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ContribResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Face\FaceWithTrayBase.cs" />
     <Compile Include="Notifications\NotificationSummary.cs" />
     <Compile Include="Util\Parse.cs" />
     <Compile Include="Drawing\Drawing.cs" />
@@ -88,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Envelope.gif" />
+    <None Include="Resources\small.tinyfnt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Mail.gif" />

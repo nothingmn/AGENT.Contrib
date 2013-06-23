@@ -23,7 +23,7 @@ namespace AnalogWatchFace
             screen.DrawImage(0, 0, img, 0, 0, img.Width, img.Height);
 
 
-            var text = "agent";
+            var text = "AGENT";
             Point textLocation = new Point(
                 AGENT.Center.X - (drawing.MeasureString(text, font) / 2), AGENT.Center.Y - 25);
             screen.DrawText(text, font, Color.White, textLocation.X, textLocation.Y);

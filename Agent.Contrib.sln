@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherFace", "Agent.Contri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalTimeWatchFace", "Agent.Contrib\Samples\DigitalTimeWatchFace\DigitalTimeWatchFace.csproj", "{386B6B2E-1EDE-4EF6-A27F-8639B38E3617}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalogWatchFace", "AnalogWatchFace\AnalogWatchFace.csproj", "{7B16939E-21C8-47FB-9596-2823B8E178E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalogWatchFace", "Agent.Contrib\Samples\AnalogWatchFace\AnalogWatchFace.csproj", "{7B16939E-21C8-47FB-9596-2823B8E178E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

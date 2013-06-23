@@ -94,3 +94,18 @@ namespace BasicWatchFace
 Build and run!
 
 
+Using Multiple Buttons
+======================
+
+By default, watch faces only support the middle button the default for the button helper is to only enable the single button.  If you want to enable all of the buttons on the right side, just use this prior to any calls to the button helper:
+
+For example, place it at the top of your Main() in Program.cs
+
+
+            ButtonHelper.ButtonSetup = new Buttons[]
+                {
+                    Buttons.BottomRight, Buttons.MiddleRight, Buttons.TopRight
+                };
+
+This will override the default behaviour and enable all three of those buttons.
+

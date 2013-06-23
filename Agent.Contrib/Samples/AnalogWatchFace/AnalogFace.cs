@@ -3,6 +3,7 @@ using System.Globalization;
 using Agent.Contrib;
 using Agent.Contrib.Drawing;
 using Agent.Contrib.Face;
+using Agent.Contrib.Hardware;
 using Agent.Contrib.Notifications;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
@@ -68,33 +69,43 @@ namespace AnalogWatchFace
                 AGENT.Center.X - (drawing.MeasureString(date, font)/2), AGENT.Center.Y + 20);
             screen.DrawText(date, font, Color.White, dateLocation.X, dateLocation.Y);
 
-
+            //draw our hands
             drawing.PaintSkinnyHands(screen, Settings.Now, AGENT.Center);
 
+            //battery level
+            drawing.DrawBattery(screen, new Point(1, 0), 14, 9, 1, Color.White, Color.Black, Battery.Charging,
+                                Battery.Level);
+            screen.DrawText(Battery.Level.ToString(), font, Color.White, 15, -2);
+            
             var notificationSummary = new NotificationSummary(_notificationProvider);
+            if(notificationSummary.CalendarCount>99)notificationSummary.CalendarCount = 99;
+            if (notificationSummary.EmailCount > 99) notificationSummary.EmailCount = 99;
+            if (notificationSummary.TextCount > 99) notificationSummary.TextCount = 99;
+            if (notificationSummary.VoiceCount > 99) notificationSummary.VoiceCount = 99;
+
             if (notificationSummary.EmailCount > 0)
             {
                 Debug.Print("Emails: " + notificationSummary.EmailCount.ToString());
-                screen.DrawImage(20, AGENT.Center.Y - (mailBmp.Height / 2), mailBmp, 0, 0, mailBmp.Width, mailBmp.Height);
-                screen.DrawText(notificationSummary.EmailCount.ToString(), font, Color.White, 21, (AGENT.Center.Y - (mailBmp.Height / 2)) + mailBmp.Height + 1);
+                screen.DrawImage(33, 0, mailBmp, 0, 0, mailBmp.Width, mailBmp.Height);
+                screen.DrawText(notificationSummary.EmailCount.ToString(), font, Color.White, 45, -2);
             }
             if (notificationSummary.TextCount > 0)
             {
                 Debug.Print("Text: " + notificationSummary.TextCount.ToString());
-                screen.DrawImage(35, AGENT.Center.Y - (envBmp.Height / 2), envBmp, 0, 0, envBmp.Width, envBmp.Height);
-                screen.DrawText(notificationSummary.TextCount.ToString(), font, Color.White, 36, (AGENT.Center.Y - (envBmp.Height / 2)) + envBmp.Height + 1);
+                screen.DrawImage(58, 0, envBmp, 0, 0, envBmp.Width, envBmp.Height);
+                screen.DrawText(notificationSummary.TextCount.ToString(), font, Color.White, 70,-2);
             }
             if (notificationSummary.VoiceCount > 0)
             {
                 Debug.Print("Voice: " + notificationSummary.VoiceCount.ToString());
-                screen.DrawImage(80, AGENT.Center.Y - (voiceBmp.Height / 2), voiceBmp, 0, 0, voiceBmp.Width, voiceBmp.Height);
-                screen.DrawText(notificationSummary.VoiceCount.ToString(), font, Color.White, 81, (AGENT.Center.Y - (voiceBmp.Height / 2)) + voiceBmp.Height + 1);
+                screen.DrawImage(83, 0, voiceBmp, 0, 0, voiceBmp.Width, voiceBmp.Height);
+                screen.DrawText(notificationSummary.VoiceCount.ToString(), font, Color.White, 95,-2);
             }
             if (notificationSummary.CalendarCount > 0)
             {
                 Debug.Print("ToDo: " + notificationSummary.CalendarCount.ToString());
-                screen.DrawImage(95, AGENT.Center.Y - (timeBmp.Height / 2), timeBmp, 0, 0, timeBmp.Width, timeBmp.Height);
-                screen.DrawText(notificationSummary.CalendarCount.ToString(), font, Color.White, 96, (AGENT.Center.Y - (timeBmp.Height / 2)) + timeBmp.Height + 1);
+                screen.DrawImage(106,0, timeBmp, 0, 0, timeBmp.Width, timeBmp.Height);
+                screen.DrawText(notificationSummary.CalendarCount.ToString(), font, Color.White, 117,-2);
             }
 
 

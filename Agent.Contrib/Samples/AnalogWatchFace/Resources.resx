@@ -121,9 +121,6 @@
   <data name="small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\small.tinyfnt;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value>Hello World!</value>
-  </data>
   <data name="WatchFaceFromScratch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\WatchFaceFromScratch.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>

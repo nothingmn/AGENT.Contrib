@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\small.tinyfnt" />
-    <None Include="Resources\WatchFaceFromScratch.gif" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Agent.Contrib.csproj">
@@ -72,5 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\VoiceMail.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WatchFaceFromScratch.gif" />
   </ItemGroup>
 </Project>

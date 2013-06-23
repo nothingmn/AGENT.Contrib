@@ -8,5 +8,6 @@ namespace Agent.Contrib.Face
         IFace Face { get; set; }
         Bitmap Screen { get; set; }
         void Start();
+        void Render();
     }
 }

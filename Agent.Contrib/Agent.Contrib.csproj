@@ -32,6 +32,11 @@
   <ItemGroup>
     <Compile Include="AGENT.cs" />
     <Compile Include="Communication\IChannel.cs" />
+    <Compile Include="ContribResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContribResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Notifications\NotificationSummary.cs" />
     <Compile Include="Util\Parse.cs" />
     <Compile Include="Drawing\Drawing.cs" />
@@ -74,5 +79,23 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ContribResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContribResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Envelope.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mail.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Time.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VoiceMail.gif" />
   </ItemGroup>
 </Project>

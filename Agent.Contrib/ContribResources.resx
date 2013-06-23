@@ -118,10 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\small.tinyfnt;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="Envelope" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Envelope.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="WatchFaceFromScratch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\WatchFaceFromScratch.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Mail.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="Time" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Time.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="VoiceMail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\VoiceMail.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

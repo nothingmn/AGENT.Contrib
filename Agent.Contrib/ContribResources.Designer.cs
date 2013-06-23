@@ -8,40 +8,34 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AnalogWatchFace
+namespace Agent.Contrib
 {
     
-    internal partial class Resources
+    internal partial class ContribResources
     {
         private static System.Resources.ResourceManager manager;
         internal static System.Resources.ResourceManager ResourceManager
         {
             get
             {
-                if ((Resources.manager == null))
+                if ((ContribResources.manager == null))
                 {
-                    Resources.manager = new System.Resources.ResourceManager("AnalogWatchFace.Resources", typeof(Resources).Assembly);
+                    ContribResources.manager = new System.Resources.ResourceManager("Agent.Contrib.ContribResources", typeof(ContribResources).Assembly);
                 }
-                return Resources.manager;
+                return ContribResources.manager;
             }
         }
-        internal static Microsoft.SPOT.Font GetFont(Resources.FontResources id)
-        {
-            return ((Microsoft.SPOT.Font)(Microsoft.SPOT.ResourceUtility.GetObject(ResourceManager, id)));
-        }
-        internal static byte[] GetBytes(Resources.BinaryResources id)
+        internal static byte[] GetBytes(ContribResources.BinaryResources id)
         {
             return ((byte[])(Microsoft.SPOT.ResourceUtility.GetObject(ResourceManager, id)));
         }
         [System.SerializableAttribute()]
-        internal enum FontResources : short
-        {
-            small = 13070,
-        }
-        [System.SerializableAttribute()]
         internal enum BinaryResources : short
         {
-            WatchFaceFromScratch = 13742,
+            Envelope = -12987,
+            VoiceMail = -11536,
+            Time = 3642,
+            Mail = 18150,
         }
     }
 }

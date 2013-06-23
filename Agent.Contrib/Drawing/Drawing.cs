@@ -1,4 +1,6 @@
 using System;
+using Agent.Contrib.Hardware;
+using Agent.Contrib.Notifications;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -292,5 +294,92 @@ namespace Agent.Contrib.Drawing
                                               Color.White, 0, 0, 255);
 
         }
+
+        private Bitmap _EmailImage = null;
+        public Bitmap EmailImage
+        {
+            get
+            {
+                if (_EmailImage == null)
+                    _EmailImage = new Bitmap(ContribResources.GetBytes(ContribResources.BinaryResources.Mail),
+                                             Bitmap.BitmapImageType.Gif);
+                return _EmailImage;
+            }
+        }
+        private Bitmap _textImage = null;
+        public Bitmap TextImage
+        {
+            get
+            {
+                if (_textImage == null)
+                    _textImage = new Bitmap(ContribResources.GetBytes(ContribResources.BinaryResources.Envelope),
+                                             Bitmap.BitmapImageType.Gif);
+                return _textImage;
+            }
+        }
+        private Bitmap _calendarImage = null;
+        public Bitmap CalendarImage
+        {
+            get
+            {
+                if (_calendarImage == null)
+                    _calendarImage = new Bitmap(ContribResources.GetBytes(ContribResources.BinaryResources.Time),
+                                             Bitmap.BitmapImageType.Gif);
+                return _calendarImage;
+            }
+        }
+        private Bitmap _VoiceMailImage = null;
+        public Bitmap VoiceMailImage
+        {
+            get
+            {
+                if (_VoiceMailImage == null)
+                    _VoiceMailImage = new Bitmap(ContribResources.GetBytes(ContribResources.BinaryResources.VoiceMail),
+                                             Bitmap.BitmapImageType.Gif);
+                return _VoiceMailImage;
+            }
+        }
+
+        public void DrawTray(Bitmap screen, IProvideNotifications notificationProvider, Font font )
+        {
+            //battery level
+            this.DrawBattery(screen, new Point(1, 0), 14, 9, 1, Color.White, Color.Black, Battery.Charging,
+                                Battery.Level);
+            screen.DrawText(Battery.Level.ToString(), font, Color.White, 15, -2);
+
+            var notificationSummary = new NotificationSummary(notificationProvider);
+            if (notificationSummary.CalendarCount > 99) notificationSummary.CalendarCount = 99;
+            if (notificationSummary.EmailCount > 99) notificationSummary.EmailCount = 99;
+            if (notificationSummary.TextCount > 99) notificationSummary.TextCount = 99;
+            if (notificationSummary.VoiceCount > 99) notificationSummary.VoiceCount = 99;
+
+            if (notificationSummary.EmailCount > 0)
+            {
+                Debug.Print("Emails: " + notificationSummary.EmailCount.ToString());
+                screen.DrawImage(33, 0, EmailImage, 0, 0, EmailImage.Width, EmailImage.Height);
+                screen.DrawText(notificationSummary.EmailCount.ToString(), font, Color.White, 45, -2);
+            }
+            if (notificationSummary.TextCount > 0)
+            {
+                Debug.Print("Text: " + notificationSummary.TextCount.ToString());
+                screen.DrawImage(58, 0, TextImage, 0, 0, TextImage.Width, TextImage.Height);
+                screen.DrawText(notificationSummary.TextCount.ToString(), font, Color.White, 70, -2);
+            }
+            if (notificationSummary.VoiceCount > 0)
+            {
+                Debug.Print("Voice: " + notificationSummary.VoiceCount.ToString());
+                screen.DrawImage(83, 0, VoiceMailImage, 0, 0, VoiceMailImage.Width, VoiceMailImage.Height);
+                screen.DrawText(notificationSummary.VoiceCount.ToString(), font, Color.White, 95, -2);
+            }
+            if (notificationSummary.CalendarCount > 0)
+            {
+                Debug.Print("ToDo: " + notificationSummary.CalendarCount.ToString());
+                screen.DrawImage(106, 0, CalendarImage, 0, 0, CalendarImage.Width, CalendarImage.Height);
+                screen.DrawText(notificationSummary.CalendarCount.ToString(), font, Color.White, 117, -2);
+            }
+
+
+        }
+
     }
 }

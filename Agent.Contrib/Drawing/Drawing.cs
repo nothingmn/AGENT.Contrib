@@ -6,10 +6,7 @@ namespace Agent.Contrib.Drawing
 {
     public class Drawing
     {
-
-
-
-        static object _screenLock = new object();
+        private static object _screenLock = new object();
         private static Bitmap _screen;
 
         /// <summary>
@@ -22,7 +19,7 @@ namespace Agent.Contrib.Drawing
             {
                 lock (_screenLock)
                 {
-                    if(_screen == null) _screen =  new Bitmap(Bitmap.MaxWidth, Bitmap.MaxHeight);
+                    if (_screen == null) _screen = new Bitmap(Bitmap.MaxWidth, Bitmap.MaxHeight);
                 }
                 return _screen;
             }
@@ -241,33 +238,46 @@ namespace Agent.Contrib.Drawing
         /// <param name="borderThickness"></param>
         /// <param name="batteryColor"></param>
         /// <param name="backColor"></param>
-        public static void DrawBattery(Bitmap screen, Point batteryPosition, int batteryWidth, int batteryHeight, int borderThickness, Color batteryColor, Color backColor)
+        public Size DrawBattery(Bitmap screen, Point batteryPosition, int batteryWidth, int batteryHeight,
+                                int borderThickness, Color batteryColor, Color backColor, bool charging, int batteryLevel)
         {
-            int level = Microsoft.SPOT.Hardware.Battery.StateOfCharge();
-
+            
             //calculate filler
-            double fillerWidth = (batteryWidth - (borderThickness * 2));
-            double percent = ((double)level * 0.01);
-            double actualFillerWidth = fillerWidth * percent;
+            double fillerWidth = (batteryWidth - (borderThickness*2));
+            double percent = ((double)batteryLevel * 0.01);
+            double actualFillerWidth = fillerWidth*percent;
 
             //calculate nub
-            double nubHight = batteryHeight * 0.5;
-            double nubWidth = batteryHeight * 0.1;
-            double nubTop = (((double)batteryHeight) / 2) - (nubHight / 2);
-            Point nubPosition = new Point(batteryWidth, (int)System.Math.Floor(nubTop));
-            Debug.Print(nubHight.ToString());
-            Debug.Print(nubPosition.X.ToString());
-            Debug.Print(nubPosition.Y.ToString());
-
+            double nubHight = batteryHeight*0.5;
+            double nubWidth = batteryHeight*0.1;
+            double nubTop = (((double) batteryHeight)/2) - (nubHight/2);
+            Point nubPosition = new Point(batteryPosition.X + batteryWidth,
+                                          batteryPosition.Y + (int) System.Math.Floor(nubTop));
 
             //draw main battery outline
-            screen.DrawRectangle(batteryColor, borderThickness, batteryPosition.X, batteryPosition.Y, batteryWidth, batteryHeight, 0, 0, backColor, 0, 0, backColor, 0, 0, 255);
+            screen.DrawRectangle(batteryColor, borderThickness, batteryPosition.X, batteryPosition.Y, batteryWidth,
+                                 batteryHeight, 0, 0, backColor, 0, 0, backColor, 0, 0, 255);
             //draw filler
-            screen.DrawRectangle(batteryColor, 1, batteryPosition.X, batteryPosition.Y, (int)actualFillerWidth, batteryHeight, 0, 0, batteryColor, 0, 0, batteryColor, 0, 0, 255);
+            screen.DrawRectangle(backColor, 1, batteryPosition.X + 1, batteryPosition.Y + 1, (int) actualFillerWidth - 1,
+                                 batteryHeight - 2, 0, 0, batteryColor, 0, 0, batteryColor, 0, 0, 255);
             //draw battery nub
-            screen.DrawRectangle(batteryColor, 1, nubPosition.X, nubPosition.Y, (int)nubWidth, (int)nubHight, 0, 0, batteryColor, 0, 0, batteryColor, 0, 0, 255);
+            screen.DrawRectangle(batteryColor, 1, nubPosition.X, nubPosition.Y, (int) nubWidth, (int) nubHight, 0, 0,
+                                 batteryColor, 0, 0, batteryColor, 0, 0, 255);
+            //draw inner border
+            var batterySize = new Size(batteryWidth + (int) nubWidth, batteryHeight);
+            if (charging)
+            {
+                //draw charging indicator
+                double iconHeight = (int)(nubHight*0.20);
+                double iconTop = batteryPosition.Y + ((double)batteryHeight/2 - iconHeight/2)+1;
+                double iconLeft = batteryPosition.X + 4;
+                double iconWidth = (int)(iconLeft + actualFillerWidth - 5);
+
+                screen.DrawLine(backColor, (int)iconHeight, (int)iconLeft, (int)iconTop, (int)iconWidth, (int)iconTop);
 
 
+            }
+            return batterySize;
         }
 
     }

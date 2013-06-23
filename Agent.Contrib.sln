@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWatchFace", "Agent.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWatchFaceWithButtons", "Agent.Contrib\Samples\SimpleWatchFaceWithButtons\SimpleWatchFaceWithButtons.csproj", "{E8892082-8C3D-42C7-9B7E-C5856FA23AE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatterySizesWatchFace", "Agent.Contrib\Samples\BatterySizesWatchFace\BatterySizesWatchFace.csproj", "{1A12E599-A407-40A8-8C71-61CF2BF9AB90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,12 @@ Global
 		{E8892082-8C3D-42C7-9B7E-C5856FA23AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8892082-8C3D-42C7-9B7E-C5856FA23AE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E8892082-8C3D-42C7-9B7E-C5856FA23AE4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1A12E599-A407-40A8-8C71-61CF2BF9AB90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A12E599-A407-40A8-8C71-61CF2BF9AB90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A12E599-A407-40A8-8C71-61CF2BF9AB90}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1A12E599-A407-40A8-8C71-61CF2BF9AB90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A12E599-A407-40A8-8C71-61CF2BF9AB90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A12E599-A407-40A8-8C71-61CF2BF9AB90}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

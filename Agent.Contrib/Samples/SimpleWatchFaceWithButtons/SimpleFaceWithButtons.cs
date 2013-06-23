@@ -1,5 +1,7 @@
 using System;
 using System.Globalization;
+using Agent.Contrib;
+using Agent.Contrib.Drawing;
 using Agent.Contrib.Face;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
@@ -12,14 +14,17 @@ namespace SimpleWatchFaceWithButtons
         {
             ShowDate = false;
         }
+
         public bool ShowDate { get; set; }
         private Font font = Resources.GetFont(Resources.FontResources.NinaB);
+
         public void Render(Bitmap screen)
         {
+
             screen.DrawText(
                 DateTime.Now.ToString(DateTimeFormatInfo.CurrentInfo.ShortTimePattern),
                 font,
-                Color.White, 
+                Color.White,
                 0,
                 0
                 );
@@ -33,7 +38,7 @@ namespace SimpleWatchFaceWithButtons
                     0,
                     font.Height + 5
                     );
-    
+
             }
         }
 

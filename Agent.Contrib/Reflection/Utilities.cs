@@ -49,7 +49,7 @@ namespace Agent.Contrib.Reflection
                         list.Add(t);
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                 }
             }

@@ -279,6 +279,18 @@ namespace Agent.Contrib.Drawing
             }
             return batterySize;
         }
+        public void PaintSkinnyHands(Bitmap screen, DateTime time, Point center)
+        {
+            PaintHourHand(screen, Color.White, 3, time.Hour, time.Minute);
+            PaintMinuteHand(screen, Color.White, 2, time.Minute,
+                                           time.Second);
+            //PaintSecondHand(screen,Color.White, 1, time.CurrentTime.Second);
 
+            screen.DrawEllipse(Color.White, 1, center.X, center.Y, 3, 3, Color.White, 0, 0,
+                                  Color.White, 0, 0, 255);
+            screen.DrawEllipse(Color.White, 1, center.X, center.Y, 2, 2, Color.Black, 0, 0,
+                                              Color.White, 0, 0, 255);
+
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace Agent.Contrib.Hardware
                     if (current == null)
                     {
                         if (ButtonSetup == null || ButtonSetup.Length == 0)
-                            ButtonSetup = new Buttons[] {Buttons.MiddleRight};
+                            ButtonSetup = new Buttons[] {Buttons.MiddleRight, Buttons.BottomLeft, Buttons.BottomRight, Buttons.TopLeft, Buttons.TopRight, };
 
                         current = new ButtonHelper(ButtonSetup);
                     }

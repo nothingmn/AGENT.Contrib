@@ -54,6 +54,7 @@
   <ItemGroup>
     <None Include="Resources\Digital714Full.tinyfnt" />
     <None Include="Resources\Digital748TimeOnly.tinyfnt" />
+    <None Include="Resources\small.tinyfnt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Agent.Contrib.csproj">

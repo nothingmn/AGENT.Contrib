@@ -38,6 +38,7 @@ namespace DigitalTimeWatchFace
         {
             Digital748TimeOnly = -7861,
             Digital714Full = 9223,
+            small = 13070,
         }
         [System.SerializableAttribute()]
         internal enum StringResources : short

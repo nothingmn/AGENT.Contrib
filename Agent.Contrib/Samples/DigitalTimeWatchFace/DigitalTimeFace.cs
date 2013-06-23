@@ -2,6 +2,7 @@ using System;
 using Agent.Contrib;
 using Agent.Contrib.Drawing;
 using Agent.Contrib.Face;
+using Agent.Contrib.Notifications;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -9,14 +10,33 @@ namespace DigitalTimeWatchFace
 {
     public class DigitalTimeFace : IFace
     {
+                private IProvideNotifications _notificationProvider;
+
+                public DigitalTimeFace(IProvideNotifications notificationProvider)
+        {
+            _notificationProvider = notificationProvider;
+            notificationProvider.OnNotificationReceived += notificationProvider_OnNotificationReceived;
+        }
+
+        private void notificationProvider_OnNotificationReceived(INotification notification)
+        {
+            if (_screen != null)
+            {
+                _screen.Clear();
+                Render(_screen);
+                _screen.Flush();
+            }
+        }
+        private Bitmap _screen = null;
         public Agent.Contrib.Settings.ISettings Settings { get; set; }
         private Font font = Resources.GetFont(Resources.FontResources.Digital714Full);
         private Font bigfont = Resources.GetFont(Resources.FontResources.Digital748TimeOnly);
+        private Font smallFont = Resources.GetFont(Resources.FontResources.small);
         private Drawing drawing = new Drawing();
 
         public void Render(Bitmap screen)
         {
-
+            if (_screen == null) _screen = screen;
             DateTime now = DateTime.Now;
             string display = "";
             string hour, minute = now.Minute.ToString();
@@ -45,7 +65,9 @@ namespace DigitalTimeWatchFace
             string date = System.Globalization.DateTimeFormatInfo.CurrentInfo.MonthNames[(int)now.Month];
             date = date + " " + now.Day.ToString();
             screen.DrawText(date, font, Color.White, 5, 30);
- 
+
+            drawing.DrawTray(screen, _notificationProvider, smallFont);
+
         }
 
         public int UpdateSpeed

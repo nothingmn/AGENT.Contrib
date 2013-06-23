@@ -10,7 +10,7 @@ namespace Agent.Contrib.Weather
         double Temperature { get; set; }
         double ChanceOfPrecipitation { get; set; }
         string Details { get; set; }
-        DateTime Date { get; set; }
+        DateTime TimeStamp { get; set; }
         string TimeName { get; set; }
         bool IsCelsius { get; set; }
     }

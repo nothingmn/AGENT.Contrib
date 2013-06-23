@@ -3,10 +3,10 @@ using Microsoft.SPOT;
 
 namespace Agent.Contrib.Drawing
 {
-    public class Point 
+    public class Point
     {
-        
-        public Point(int x, int y) 
+
+        public Point(int x = 0, int y = 0)
         {
             X = x;
             Y = y;

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Convert
+namespace Agent.Contrib.Util
 {
     /// <summary>
     /// Provides additional parsing operations

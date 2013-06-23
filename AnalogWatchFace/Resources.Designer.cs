@@ -38,6 +38,15 @@ namespace AnalogWatchFace
             return ((byte[])(Microsoft.SPOT.ResourceUtility.GetObject(ResourceManager, id)));
         }
         [System.SerializableAttribute()]
+        internal enum BinaryResources : short
+        {
+            Envelope = -12987,
+            VoiceMail = -11536,
+            Time = 3642,
+            WatchFaceFromScratch = 13742,
+            Mail = 18150,
+        }
+        [System.SerializableAttribute()]
         internal enum StringResources : short
         {
             String1 = 1228,
@@ -46,11 +55,6 @@ namespace AnalogWatchFace
         internal enum FontResources : short
         {
             small = 13070,
-        }
-        [System.SerializableAttribute()]
-        internal enum BinaryResources : short
-        {
-            WatchFaceFromScratch = 13742,
         }
     }
 }

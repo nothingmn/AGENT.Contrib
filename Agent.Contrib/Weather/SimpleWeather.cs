@@ -14,7 +14,7 @@ namespace Agent.Contrib.Weather
                 return new DayForecast()
                     {
                         ChanceOfPrecipitation = 35,
-                        Date = Settings.SettingsProvider.Current.Now,
+                        TimeStamp = Settings.SettingsProvider.Current.Now,
                         Details = "Sunny with a chance of showers",
                         IsCelsius = true,
                         Temperature = 30,
@@ -28,7 +28,7 @@ namespace Agent.Contrib.Weather
         private IForecast SampleForecast(int dayOffSet)
         {
             var cf = CurrentForecast;
-            cf.Date = cf.Date.AddDays(dayOffSet);
+            cf.TimeStamp = cf.TimeStamp.AddDays(dayOffSet);
             cf.Temperature = rnd.Next(40);
             return cf;
         }

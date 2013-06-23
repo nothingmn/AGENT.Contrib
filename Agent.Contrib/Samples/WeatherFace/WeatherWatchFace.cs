@@ -47,9 +47,9 @@ namespace WeatherFace
                     var startDate = now.Date.AddDays(x);
                     foreach (IForecast f in WeatherProvider.CurrentWeekForecast)
                     {
-                        if (f.Date.Year == now.Date.Year && f.Date.Month == now.Date.Month && f.Date.Day == now.Date.Day)
+                        if (f.TimeStamp.Year == now.Date.Year && f.TimeStamp.Month == now.Date.Month && f.TimeStamp.Day == now.Date.Day)
                             nowForecast = f;
-                        if (startDate.Year == f.Date.Year && startDate.Month == f.Date.Month && startDate.Day == f.Date.Day)
+                        if (startDate.Year == f.TimeStamp.Year && startDate.Month == f.TimeStamp.Month && startDate.Day == f.TimeStamp.Day)
                         {
                             Debug.Print("Found match");
                             current = f;
@@ -60,7 +60,7 @@ namespace WeatherFace
                     {
                         needsDate = true;
                         screen.DrawText(current.Temperature.ToString(), font, Color.White, left + 4, top + font.Height + 2);
-                        lastUpdated = current.Date;
+                        lastUpdated = current.TimeStamp;
                     }
                 }
                 counter++;
@@ -73,7 +73,7 @@ namespace WeatherFace
                 int forecastLeft = AGENT.Size - drawing.MeasureString(display, bigfont);
                 screen.DrawText(display, bigfont, Color.White, forecastLeft, (AGENT.Size / 2) + 2);
                 needsDate = true;
-                lastUpdated = nowForecast.Date;
+                lastUpdated = nowForecast.TimeStamp;
             }
             if (needsDate)
             {

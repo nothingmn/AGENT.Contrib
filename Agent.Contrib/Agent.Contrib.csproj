@@ -32,7 +32,8 @@
   <ItemGroup>
     <Compile Include="AGENT.cs" />
     <Compile Include="Communication\IChannel.cs" />
-    <Compile Include="Convert\Parse.cs" />
+    <Compile Include="Notifications\NotificationSummary.cs" />
+    <Compile Include="Util\Parse.cs" />
     <Compile Include="Drawing\Drawing.cs" />
     <Compile Include="Drawing\Size.cs" />
     <Compile Include="Face\IWatchFace.cs" />
@@ -48,11 +49,17 @@
     <Compile Include="Face\WatchFace.cs" />
     <Compile Include="Drawing\Point.cs" />
     <Compile Include="Hardware\Buttons.cs" />
+    <Compile Include="Notifications\INotification.cs" />
+    <Compile Include="Notifications\IProvideNotifications.cs" />
+    <Compile Include="Notifications\Notification.cs" />
+    <Compile Include="Notifications\NotificationProvider.cs" />
+    <Compile Include="Notifications\SimpleNotifications.cs" />
     <Compile Include="Settings\ISettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\Utilities.cs" />
     <Compile Include="Settings\SettingsProvider.cs" />
     <Compile Include="Settings\SimpleSettings.cs" />
+    <Compile Include="Util\Random.cs" />
     <Compile Include="Weather\DayForecast.cs" />
     <Compile Include="Weather\IForecast.cs" />
     <Compile Include="Weather\IProvideWeather.cs" />

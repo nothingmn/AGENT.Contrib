@@ -61,4 +61,16 @@
       <Name>Agent.Contrib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Envelope.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mail.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Time.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VoiceMail.gif" />
+  </ItemGroup>
 </Project>

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <AssemblyName>Agent.Contrib</AssemblyName>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Agent.Contrib</RootNamespace>
+    <AssemblyName>SimpleWatchFaceWithButtons</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SimpleWatchFaceWithButtons</RootNamespace>
     <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C13C6D79-545D-40EB-9F3C-8746C99C259C}</ProjectGuid>
+    <ProjectGuid>{E8892082-8C3D-42C7-9B7E-C5856FA23AE4}</ProjectGuid>
     <TargetFrameworkVersion>v4.3</TargetFrameworkVersion>
     <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
   </PropertyGroup>
@@ -30,23 +30,14 @@
   </PropertyGroup>
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
-    <Compile Include="AGENT.cs" />
-    <Compile Include="Communication\IChannel.cs" />
-    <Compile Include="Convert\Parse.cs" />
-    <Compile Include="Drawing\Drawing.cs" />
-    <Compile Include="Drawing\Size.cs" />
-    <Compile Include="Face\IWatchFace.cs" />
-    <Compile Include="GeoLocation\ICoordinate.cs" />
-    <Compile Include="GeoLocation\IPosition.cs" />
-    <Compile Include="Hardware\Battery.cs" />
-    <Compile Include="Hardware\ButtonDirection.cs" />
-    <Compile Include="Hardware\ButtonHelper.cs" />
-    <Compile Include="Face\IFace.cs" />
-    <Compile Include="Face\WatchFace.cs" />
-    <Compile Include="Drawing\Point.cs" />
-    <Compile Include="Hardware\Buttons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reflection\Utilities.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleFaceWithButtons.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.Graphics" />
@@ -55,6 +46,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Samples\" />
+    <EmbeddedResource Include="Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Agent.Contrib.csproj">
+      <Project>{C13C6D79-545D-40EB-9F3C-8746C99C259C}</Project>
+      <Name>Agent.Contrib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NinaB.tinyfnt" />
   </ItemGroup>
 </Project>

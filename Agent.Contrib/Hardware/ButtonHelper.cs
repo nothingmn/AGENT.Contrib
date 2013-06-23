@@ -13,7 +13,7 @@ namespace Agent.Contrib.Hardware
     /// </summary>
     public class ButtonHelper
     {
-
+        public static Buttons[] ButtonSetup { get; set; }
         private static object _lock = new object();
         private static ButtonHelper current;
 
@@ -23,7 +23,13 @@ namespace Agent.Contrib.Hardware
             {
                 lock (_lock)
                 {
-                    if (current == null) current = new ButtonHelper(Buttons.MiddleRight);
+                    if (current == null)
+                    {
+                        if (ButtonSetup == null || ButtonSetup.Length == 0)
+                            ButtonSetup = new Buttons[] {Buttons.MiddleRight};
+
+                        current = new ButtonHelper(ButtonSetup);
+                    }
                 }
                 return current;
             }

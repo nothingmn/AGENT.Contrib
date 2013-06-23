@@ -10,6 +10,22 @@ namespace Agent.Contrib.Face
         public IFace Face { get; set; }
         public Bitmap Screen { get; set; }
 
+        public void Render()
+        {
+
+            //clear the display
+            Screen.Clear();
+
+
+            //call the user code
+            Face.Render(Screen);
+
+
+            //flush the image out to the device
+            Screen.Flush();
+
+
+        }
         public WatchFace(IFace face, Bitmap screen = null)
         {            
             Face = face;
@@ -26,18 +42,7 @@ namespace Agent.Contrib.Face
             var timer = new Timer(state =>
             {
 
-                
-                //clear the display
-                Screen.Clear();
-
-    
-                //call the user code
-                Face.Render(Screen);
-
-
-                //flush the image out to the device
-                Screen.Flush();
-
+               Render();
 
             }, null, 1, Face.UpdateSpeed);
             

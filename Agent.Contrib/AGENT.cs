@@ -1,11 +1,13 @@
 using System;
 using Agent.Contrib.Drawing;
+using Agent.Contrib.Settings;
 using Microsoft.SPOT;
 
 namespace Agent.Contrib
 {
     public class AGENT
     {
+        
         public static int Size = 128;
         public static Point Center = new Drawing.Point(64, 64);
 
@@ -23,5 +25,12 @@ namespace Agent.Contrib
         {
             get { return Microsoft.SPOT.Hardware.SystemInfo.OEMString; }
         }
+
+        public static ISettings Settings
+        {
+            get { return SettingsProvider.Current; }
+        }
+
+  
     }
 }

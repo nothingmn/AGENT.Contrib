@@ -2,6 +2,7 @@ using System;
 using Agent.Contrib;
 using Agent.Contrib.Drawing;
 using Agent.Contrib.Face;
+using Agent.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -9,6 +10,7 @@ namespace BatterySizesWatchFace
 {
     public class BatterySizesFace : IFace
     {
+        public ISettings Settings { get; set; }
         public int width = AGENT.Size/2;
         public bool charging = true;
         private Drawing drawing = new Drawing();

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWatchFaceWithButtons"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatterySizesWatchFace", "Agent.Contrib\Samples\BatterySizesWatchFace\BatterySizesWatchFace.csproj", "{1A12E599-A407-40A8-8C71-61CF2BF9AB90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherFace", "Agent.Contrib\Samples\WeatherFace\WeatherFace.csproj", "{1529E94B-DD8A-4F1B-A35A-60AB0297BFAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,12 @@ Global
 		{1A12E599-A407-40A8-8C71-61CF2BF9AB90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A12E599-A407-40A8-8C71-61CF2BF9AB90}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A12E599-A407-40A8-8C71-61CF2BF9AB90}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1529E94B-DD8A-4F1B-A35A-60AB0297BFAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1529E94B-DD8A-4F1B-A35A-60AB0297BFAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1529E94B-DD8A-4F1B-A35A-60AB0297BFAF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1529E94B-DD8A-4F1B-A35A-60AB0297BFAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1529E94B-DD8A-4F1B-A35A-60AB0297BFAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1529E94B-DD8A-4F1B-A35A-60AB0297BFAF}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

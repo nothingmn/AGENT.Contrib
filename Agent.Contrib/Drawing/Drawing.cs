@@ -245,7 +245,7 @@ namespace Agent.Contrib.Drawing
         {
             
             //calculate filler
-            double fillerWidth = (batteryWidth - (borderThickness*2));
+            double fillerWidth = (batteryWidth - (borderThickness*1));
             double percent = ((double)batteryLevel * 0.01);
             double actualFillerWidth = fillerWidth*percent;
 
@@ -256,12 +256,16 @@ namespace Agent.Contrib.Drawing
             Point nubPosition = new Point(batteryPosition.X + batteryWidth,
                                           batteryPosition.Y + (int) System.Math.Floor(nubTop));
 
+           //draw filler
+            int paintedFiller = (int) actualFillerWidth;
+            if (paintedFiller < 0) paintedFiller = 0;
+            screen.DrawRectangle(backColor, 1, batteryPosition.X + 1, batteryPosition.Y + 1, paintedFiller,
+                                 batteryHeight - 2, 0, 0, batteryColor, 0, 0, batteryColor, 0, 0, 255);
+
             //draw main battery outline
             screen.DrawRectangle(batteryColor, borderThickness, batteryPosition.X, batteryPosition.Y, batteryWidth,
-                                 batteryHeight, 0, 0, backColor, 0, 0, backColor, 0, 0, 255);
-            //draw filler
-            screen.DrawRectangle(backColor, 1, batteryPosition.X + 1, batteryPosition.Y + 1, (int) actualFillerWidth - 1,
-                                 batteryHeight - 2, 0, 0, batteryColor, 0, 0, batteryColor, 0, 0, 255);
+                                 batteryHeight, 0, 0, backColor, 0, 0, backColor, 0, 0, 0);
+            
             //draw battery nub
             screen.DrawRectangle(batteryColor, 1, nubPosition.X, nubPosition.Y, (int) nubWidth, (int) nubHight, 0, 0,
                                  batteryColor, 0, 0, batteryColor, 0, 0, 255);
@@ -343,9 +347,10 @@ namespace Agent.Contrib.Drawing
         public void DrawTray(Bitmap screen, IProvideNotifications notificationProvider, Font font )
         {
             //battery level
+            var level = Util.Random.Next(0, 100);
             this.DrawBattery(screen, new Point(1, 0), 14, 9, 1, Color.White, Color.Black, Battery.Charging,
-                                Battery.Level);
-            screen.DrawText(Battery.Level.ToString(), font, Color.White, 15, -2);
+                                level);
+            screen.DrawText(level.ToString(), font, Color.White, 16, -2);
 
             var notificationSummary = new NotificationSummary(notificationProvider);
             if (notificationSummary.CalendarCount > 99) notificationSummary.CalendarCount = 99;

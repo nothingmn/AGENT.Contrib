@@ -347,10 +347,10 @@ namespace Agent.Contrib.Drawing
         public void DrawTray(Bitmap screen, IProvideNotifications notificationProvider, Font font )
         {
             //battery level
-            var level = Util.Random.Next(0, 100);
-            this.DrawBattery(screen, new Point(1, 0), 14, 9, 1, Color.White, Color.Black, Battery.Charging,
+            var level = Battery.Level;// Util.Random.Next(0, 100);
+            this.DrawBattery(screen, new Point(1, 0), 13, 9, 1, Color.White, Color.Black, Battery.Charging,
                                 level);
-            screen.DrawText(level.ToString(), font, Color.White, 16, -2);
+            screen.DrawText(level.ToString(), font, Color.White, 15, -2);
 
             var notificationSummary = new NotificationSummary(notificationProvider);
             if (notificationSummary.CalendarCount > 99) notificationSummary.CalendarCount = 99;

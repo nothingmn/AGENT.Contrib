@@ -17,6 +17,7 @@ namespace MonthWatchFace
             : base(_notifications, settings)
         {
 
+            #region Setup the calendar data
             DateTime startDate = Settings.Now.AddDays(-7);
             DateTime endDate = Settings.Now.AddDays(21);
 
@@ -88,6 +89,9 @@ namespace MonthWatchFace
                     col = 0;
                 }
             }
+            #endregion
+
+
         }
 
         ArrayList days = new ArrayList();
@@ -114,16 +118,13 @@ namespace MonthWatchFace
 
             }
 
-            string dow = "Day: " + Settings.Now.DayOfYear.ToString();
-            screen.DrawText(dow.ToString(), font, Color.White, 5, 35);
-
             string date = Settings.Now.ToString(System.Globalization.DateTimeFormatInfo.CurrentInfo.LongDatePattern);
-            //string date = System.Globalization.DateTimeFormatInfo.CurrentInfo.MonthNames[(int) Settings.Now.Month];
-            //date = date + " " + Settings.Now.Day.ToString() +;
             screen.DrawText(date, font, Color.White, 5, 15);
 
-            
 
+            string dow = "Day: " + Settings.Now.DayOfYear.ToString();
+            screen.DrawText(dow.ToString(), font, Color.White, 5, 35);
+         
             drawing.DrawTray(screen, _notificationProvider, smallFont);
 
         }

@@ -39,35 +39,43 @@ Reflection utilities
 Sample Usage
 ============
 * Download and build the Agent.Contrib project.
-* Create a new Micro .NET Framework Command line application 
-* Import your favorite font as a resource, here we will use NinaB
+* Create a new "Micro .NET Framework" "Command line" application 
+* Import your favourite font as a resource, here we will use NinaB
 * Add a reference to Microsoft.SPOT.Graphics
+* Add a reference to AGENT.Contrib project
 * Add a new file to the project, called "BasicFace.cs"
 * Update BasicFace.cs to the following code:
 
 ```
-using System;
+using System.Globalization;
 using Agent.Contrib.Face;
+using Agent.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
-namespace BasicWatchFace
+namespace SimpleWatchFace
 {
-    public class BasicFace : IFace
+    public class SimpleFace : IFace
     {
-        public void Render(Microsoft.SPOT.Bitmap screen)
+        public ISettings Settings { get; set; }
+        private Font font = Resources.GetFont(Resources.FontResources.NinaB);
+        public void Render(Bitmap screen)
         {
-            Font nina = Resources.GetFont(Resources.FontResources.NinaB);
-            screen.DrawText(DateTime.Now.ToString(System.Globalization.DateTimeFormatInfo.CurrentInfo.ShortTimePattern), nina, Color.White, 0, 0);
+            screen.DrawText(
+                Settings.Now.ToString(DateTimeFormatInfo.CurrentInfo.ShortTimePattern),
+                font,
+                Color.White, 
+                0,
+                0
+                );
         }
 
         public int UpdateSpeed
         {
-            get { return 1000*60; }
+            get { return 60*1000; }
         }
     }
 }
-
 
 ```
 * Update Program.cs to the following:
@@ -75,17 +83,15 @@ namespace BasicWatchFace
 ```
 using Agent.Contrib.Face;
 
-namespace BasicWatchFace
+namespace SimpleWatchFace
 {
     public class Program
     {
         public static void Main()
         {
-            IFace face = new BasicFace();
-            var watch = new WatchFace(face);
+            var watch = new WatchFace(new SimpleFace());
             watch.Start();
         }
-
     }
 }
 

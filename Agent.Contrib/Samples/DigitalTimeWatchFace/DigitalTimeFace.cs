@@ -3,6 +3,7 @@ using Agent.Contrib;
 using Agent.Contrib.Drawing;
 using Agent.Contrib.Face;
 using Agent.Contrib.Notifications;
+using Agent.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -11,7 +12,7 @@ namespace DigitalTimeWatchFace
     public class DigitalTimeFace : FaceWithTrayBase, IFace
     {
         
-        public DigitalTimeFace(IProvideNotifications notificationProvider) : base(notificationProvider)
+        public DigitalTimeFace(IProvideNotifications notificationProvider, ISettings settings) : base(notificationProvider, settings)
         {
 
         }

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalTimeWatchFace", "Age
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalogWatchFace", "Agent.Contrib\Samples\AnalogWatchFace\AnalogWatchFace.csproj", "{7B16939E-21C8-47FB-9596-2823B8E178E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonthWatchFace", "Agent.Contrib\Samples\MonthWatchFace\MonthWatchFace.csproj", "{DC9766FF-D2BD-4988-8537-384F5A400AB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,12 @@ Global
 		{7B16939E-21C8-47FB-9596-2823B8E178E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B16939E-21C8-47FB-9596-2823B8E178E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B16939E-21C8-47FB-9596-2823B8E178E5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DC9766FF-D2BD-4988-8537-384F5A400AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9766FF-D2BD-4988-8537-384F5A400AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9766FF-D2BD-4988-8537-384F5A400AB1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DC9766FF-D2BD-4988-8537-384F5A400AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9766FF-D2BD-4988-8537-384F5A400AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9766FF-D2BD-4988-8537-384F5A400AB1}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

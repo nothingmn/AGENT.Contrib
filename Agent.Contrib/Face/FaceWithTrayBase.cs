@@ -1,5 +1,6 @@
 using System;
 using Agent.Contrib.Notifications;
+using Agent.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -11,8 +12,9 @@ namespace Agent.Contrib.Face
         public Settings.ISettings Settings { get; set; }
         protected IProvideNotifications _notificationProvider;
         protected Agent.Contrib.Drawing.Drawing drawing = new Agent.Contrib.Drawing.Drawing();
-        public FaceWithTrayBase(IProvideNotifications notificationProvider)
+        public FaceWithTrayBase(IProvideNotifications notificationProvider, ISettings settings)
         {
+            Settings = settings;
             _notificationProvider = notificationProvider;
             notificationProvider.OnNotificationReceived += notificationProvider_OnNotificationReceived;
         }

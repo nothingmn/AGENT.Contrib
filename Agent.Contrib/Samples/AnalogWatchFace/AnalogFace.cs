@@ -5,6 +5,7 @@ using Agent.Contrib.Drawing;
 using Agent.Contrib.Face;
 using Agent.Contrib.Hardware;
 using Agent.Contrib.Notifications;
+using Agent.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -13,8 +14,8 @@ namespace AnalogWatchFace
     public class AnalogFace : FaceWithTrayBase, IFace
     {
 
-        public AnalogFace(IProvideNotifications notificationProvider)
-            : base(notificationProvider)
+        public AnalogFace(IProvideNotifications notificationProvider, ISettings settings)
+            : base(notificationProvider, settings)
         {
 
         }
@@ -50,7 +51,7 @@ namespace AnalogWatchFace
 
         }
 
-        public int UpdateSpeed
+        public new int UpdateSpeed
         {
             get { return 60*1000; }
         }

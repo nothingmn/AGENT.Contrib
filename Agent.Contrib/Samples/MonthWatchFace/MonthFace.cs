@@ -78,7 +78,7 @@ namespace MonthWatchFace
                 days.Add(new Day()
                     {
                         Text = current.Day.ToString(),
-                        Point = new Point() { X=colPos,Y=rowPos},
+                        Point = new Point(colPos,rowPos),
                         Timestamp = current
                     });
 

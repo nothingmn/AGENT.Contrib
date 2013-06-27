@@ -34,14 +34,16 @@ namespace AnalogWatchFace
             return ((byte[])(Microsoft.SPOT.ResourceUtility.GetObject(ResourceManager, id)));
         }
         [System.SerializableAttribute()]
+        internal enum BinaryResources : short
+        {
+            AnalogTicksOutside = 4976,
+            WatchFaceFromScratch = 13742,
+            AnalogTicksInside = 19543,
+        }
+        [System.SerializableAttribute()]
         internal enum FontResources : short
         {
             small = 13070,
-        }
-        [System.SerializableAttribute()]
-        internal enum BinaryResources : short
-        {
-            WatchFaceFromScratch = 13742,
         }
     }
 }

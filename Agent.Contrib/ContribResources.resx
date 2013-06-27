@@ -133,4 +133,7 @@
   <data name="VoiceMail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\VoiceMail.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="Alarm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Alarm.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
 </root>

@@ -22,6 +22,10 @@ namespace AnalogWatchFace
 
         private Bitmap img = new Bitmap(Resources.GetBytes(Resources.BinaryResources.WatchFaceFromScratch),
                                         Bitmap.BitmapImageType.Gif);
+        //private Bitmap img = new Bitmap(Resources.GetBytes(Resources.BinaryResources.AnalogTicksOutside),
+        //                                        Bitmap.BitmapImageType.Gif);
+        //private Bitmap img = new Bitmap(Resources.GetBytes(Resources.BinaryResources.AnalogTicksInside),
+        //                                        Bitmap.BitmapImageType.Gif);
 
 
         public override void Render(Bitmap screen)

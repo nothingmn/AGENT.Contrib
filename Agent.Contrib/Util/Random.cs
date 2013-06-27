@@ -13,15 +13,16 @@ namespace Agent.Contrib.Util
         /// </summary>
         public static int Next(int min, int max)
         {
-            if (min > max) //if min greater than max we swap them
-            {
-                int temp = max;
-                max = min;
-                min = temp;
-            }
-            
+
             lock (rnd)
             {
+                if (min > max) //if min greater than max we swap them
+                {
+                    int temp = max;
+                    max = min;
+                    min = temp;
+                }
+            
                 int num = rnd.Next(max - min);
                 return num + min;
             }

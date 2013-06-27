@@ -56,7 +56,7 @@ namespace Agent.Contrib.Notifications
 
                     Debug.Print("new notification:" + n.Text);
                     if (OnNotificationReceived != null) OnNotificationReceived(n);
-                }, null, 5000, 1000); //Util.Random.Next(60*1000, 60*1000*10));
+                }, null, 5000, Util.Random.Next(1000, 10000));
         }
 
         private Random rnd = new Random();

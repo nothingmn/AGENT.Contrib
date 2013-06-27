@@ -40,6 +40,7 @@ namespace Agent.Contrib
             VoiceMail = -11536,
             Time = 3642,
             Mail = 18150,
+            Alarm = 22443,
         }
         [System.SerializableAttribute()]
         internal enum FontResources : short

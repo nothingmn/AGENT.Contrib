@@ -124,4 +124,10 @@
   <data name="WatchFaceFromScratch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\WatchFaceFromScratch.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="AnalogTicksInside" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\AnalogTicksInside.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="AnalogTicksOutside" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\AnalogTicksOutside.gif;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
 </root>

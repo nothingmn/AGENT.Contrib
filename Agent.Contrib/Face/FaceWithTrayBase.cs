@@ -26,7 +26,7 @@ namespace Agent.Contrib.Face
                 _screen.Clear();           
                 Render(_screen);
                 _screen.Flush();
-            }
+            }            
         }
 
         protected Bitmap _screen = null;

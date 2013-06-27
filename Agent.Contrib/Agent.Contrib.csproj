@@ -100,4 +100,7 @@
   <ItemGroup>
     <None Include="Resources\VoiceMail.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alarm.gif" />
+  </ItemGroup>
 </Project>

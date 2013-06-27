@@ -63,4 +63,10 @@
   <ItemGroup>
     <None Include="Resources\WatchFaceFromScratch.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AnalogTicksInside.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AnalogTicksOutside.gif" />
+  </ItemGroup>
 </Project>

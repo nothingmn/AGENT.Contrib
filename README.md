@@ -13,6 +13,12 @@ If you browse the source real quick I have added a few Samples as to how to star
 
 Other highlights:
 ================
+Documentation:
+* [Style Guide] (https://github.com/nothingmn/AGENT.Contrib/wiki/Style-Guide)
+* [Development Guides] (https://github.com/nothingmn/AGENT.Contrib/wiki/Development-Guides)
+* [Micro Tips for .NET Developers] (https://github.com/nothingmn/AGENT.Contrib/wiki/Micro-Tips-for-.NET-Developers)
+* [Troubleshooting] (https://github.com/nothingmn/AGENT.Contrib/wiki/Troubleshooting)
+
 
 Drawing class:
 * A bunch of useful methods for drawing watch hands (for analog watch faces)

@@ -12,6 +12,7 @@ namespace MultiButtons
     public class Program
     {
         static Bitmap _display;
+        static Font fontNinaB = Resources.GetFont(Resources.FontResources.NinaB);
 
         /// <summary>
         /// A demonstration as to how to handle multiple button presses at the same time
@@ -33,7 +34,6 @@ namespace MultiButtons
 
             // sample "hello world" code
             _display.Clear();
-            Font fontNinaB = Resources.GetFont(Resources.FontResources.NinaB);
             _display.DrawText("Hello world.", fontNinaB, Color.White, 10, 64);
             _display.Flush();
 
@@ -49,14 +49,12 @@ namespace MultiButtons
             {
                 //both top right and bottom right buttons are pressed down
                 _display.Clear();
-                Font fontNinaB = Resources.GetFont(Resources.FontResources.NinaB);
                 _display.DrawText("YOU DID IT!", fontNinaB, Color.White, 10, 64);
                 _display.Flush();
             }
             else
             {
                 _display.Clear();
-                Font fontNinaB = Resources.GetFont(Resources.FontResources.NinaB);
                 _display.DrawText("Hello world.", fontNinaB, Color.White, 10, 64);
                 _display.Flush();
                 

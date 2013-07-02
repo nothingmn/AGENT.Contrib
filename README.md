@@ -18,6 +18,10 @@ Documentation:
 * [Development Guides] (https://github.com/nothingmn/AGENT.Contrib/wiki/Development-Guides)
 * [Micro Tips for .NET Developers] (https://github.com/nothingmn/AGENT.Contrib/wiki/Micro-Tips-for-.NET-Developers)
 * [Troubleshooting] (https://github.com/nothingmn/AGENT.Contrib/wiki/Troubleshooting)
+* [Hardware Specs] (https://github.com/nothingmn/AGENT.Contrib/wiki/Hardware-Specs)
+* [Smartphone Device Support] (https://github.com/nothingmn/AGENT.Contrib/wiki/Smartphone-Device-Support)
+* [Internationalization & Localization] (https://github.com/nothingmn/AGENT.Contrib/wiki/Internationalization-&-Localization)
+* [Building your own prototype] (https://github.com/nothingmn/AGENT.Contrib/wiki/Building-your-own-prototype)
 
 
 Drawing class:

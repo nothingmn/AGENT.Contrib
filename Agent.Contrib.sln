@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalogWatchFace", "Agent.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonthWatchFace", "Agent.Contrib\Samples\MonthWatchFace\MonthWatchFace.csproj", "{DC9766FF-D2BD-4988-8537-384F5A400AB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiButtons", "MultiButtons\MultiButtons.csproj", "{661A80CB-C181-4D70-BEB5-C2DF34021F29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiButtons", "Agent.Contrib\Samples\MultiButtons\MultiButtons.csproj", "{661A80CB-C181-4D70-BEB5-C2DF34021F29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

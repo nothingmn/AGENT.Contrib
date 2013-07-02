@@ -58,7 +58,7 @@
     <None Include="Resources\small.tinyfnt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Agent.Contrib\Agent.Contrib.csproj">
+    <ProjectReference Include="..\..\Agent.Contrib.csproj">
       <Project>{C13C6D79-545D-40EB-9F3C-8746C99C259C}</Project>
       <Name>Agent.Contrib</Name>
     </ProjectReference>

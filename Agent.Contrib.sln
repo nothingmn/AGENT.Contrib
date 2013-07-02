@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonthWatchFace", "Agent.Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiButtons", "Agent.Contrib\Samples\MultiButtons\MultiButtons.csproj", "{661A80CB-C181-4D70-BEB5-C2DF34021F29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent.SimpleCalculator", "Agent.Contrib\Samples\Agent.SimpleCalculator\Agent.SimpleCalculator.csproj", "{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,12 @@ Global
 		{661A80CB-C181-4D70-BEB5-C2DF34021F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{661A80CB-C181-4D70-BEB5-C2DF34021F29}.Release|Any CPU.Build.0 = Release|Any CPU
 		{661A80CB-C181-4D70-BEB5-C2DF34021F29}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

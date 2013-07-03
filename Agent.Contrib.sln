@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiButtons", "Agent.Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent.SimpleCalculator", "Agent.Contrib\Samples\Agent.SimpleCalculator\Agent.SimpleCalculator.csproj", "{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithButtons", "Agent.Contrib\Samples\FunWithButtons\FunWithButtons.csproj", "{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,12 @@ Global
 		{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

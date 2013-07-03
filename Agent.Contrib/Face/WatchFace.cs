@@ -38,7 +38,8 @@ namespace Agent.Contrib.Face
             //Update the timer period if it has been changed
             if (_timerPeriod != Face.UpdateSpeed)
             {
-                _timer.Change(1, Face.UpdateSpeed);
+                _timerPeriod = Face.UpdateSpeed;
+                _timer.Change(1, _timerPeriod);
             }
         }
         public WatchFace(IFace face, Bitmap screen = null, ISettings settings = null)

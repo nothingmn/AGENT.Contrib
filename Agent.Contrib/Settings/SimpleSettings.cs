@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Microsoft.SPOT;
 
 namespace Agent.Contrib.Settings
@@ -23,5 +24,7 @@ namespace Agent.Contrib.Settings
                 return now;
             }
         }
+
+        public Hashtable ApplicationSettings { get; set; }
     }
 }

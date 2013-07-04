@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Microsoft.SPOT;
 
 namespace Agent.Contrib.Settings
@@ -15,6 +16,7 @@ namespace Agent.Contrib.Settings
                 lock (_settingsLock)
                 {
                     settings = new SimpleSettings();
+                    settings.ApplicationSettings = new Hashtable();
                     return settings;
                 }
             }

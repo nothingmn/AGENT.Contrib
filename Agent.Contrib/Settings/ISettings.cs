@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Microsoft.SPOT;
 
 namespace Agent.Contrib.Settings
@@ -17,5 +18,7 @@ namespace Agent.Contrib.Settings
         bool DST { get; set; }
 
         DateTime Now { get; }
+
+        Hashtable ApplicationSettings { get; set; }
     }
 }

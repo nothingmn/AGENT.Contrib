@@ -3,6 +3,8 @@ using Microsoft.SPOT;
 
 namespace Agent.Contrib.GeoLocation
 {
+    public delegate void PositionUpdated(IPosition newPosition);
+
     public class Coordinate : ICoordinate
     {
         public string Address { get; set; }

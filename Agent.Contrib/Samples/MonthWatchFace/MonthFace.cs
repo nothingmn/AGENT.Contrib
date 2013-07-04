@@ -129,9 +129,5 @@ namespace MonthWatchFace
 
         }
 
-        public int UpdateSpeed
-        {
-            get { return 60*1000; }
-        }
     }
 }

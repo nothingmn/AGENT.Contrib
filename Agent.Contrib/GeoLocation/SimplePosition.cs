@@ -24,9 +24,10 @@ namespace Agent.Contrib.GeoLocation
                     Speed = 0
                 };
 
-            System.Threading.Timer geoTimer = new Timer(updatePosition, null, 5000, 5000);
+            geoTimer = new Timer(updatePosition, null, 5000, 5000);
         }
 
+        private System.Threading.Timer geoTimer;
         private void updatePosition(object state)
         {
             Coordinates.Latitude += 0.5;

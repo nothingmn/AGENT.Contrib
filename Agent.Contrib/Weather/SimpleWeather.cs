@@ -1,9 +1,13 @@
 using System;
 using System.Collections;
+using System.Threading;
 using Microsoft.SPOT;
 
 namespace Agent.Contrib.Weather
 {
+
+    public delegate void WeatherUpdated(IForecast forecast);
+
     public class SimpleWeather : IProvideWeather
     {
 
@@ -21,6 +25,16 @@ namespace Agent.Contrib.Weather
                         TimeName = "Day"
                     };
             }
+        }
+        public SimpleWeather()
+        {
+            geoTimer = new Timer(updateWeather, null, 5000, 5000);
+        }
+
+        private System.Threading.Timer geoTimer;
+        private void updateWeather(object state)
+        {
+            if (OnWeatherUpdated != null) OnWeatherUpdated(CurrentForecast);
         }
 
         private System.Random rnd = new Random();
@@ -50,5 +64,7 @@ namespace Agent.Contrib.Weather
                     };
             }
         }
+
+        public event WeatherUpdated OnWeatherUpdated;
     }
 }

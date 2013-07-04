@@ -12,15 +12,6 @@ namespace Agent.Contrib.Face
         public IFace Face { get; set; }
         public Bitmap Screen { get; set; }
 
-        /// <summary>
-        /// Reference to the internal timer used to refresh the face
-        /// </summary>
-        private Timer _timer;
-        /// <summary>
-        /// Timer interval in ms
-        /// </summary>
-        private int _timerPeriod;
-
         public void Render()
         {
 
@@ -35,12 +26,7 @@ namespace Agent.Contrib.Face
             //flush the image out to the device
             Screen.Flush();
 
-            //Update the timer period if it has been changed
-            if (_timerPeriod != Face.UpdateSpeed)
-            {
-                _timerPeriod = Face.UpdateSpeed;
-                _timer.Change(1, _timerPeriod);
-            }
+
         }
         public WatchFace(IFace face, Bitmap screen = null, ISettings settings = null)
         {            
@@ -58,14 +44,12 @@ namespace Agent.Contrib.Face
 
             // Included font is used in the clock
 
-            // Store the timer reference so we can change period later if required
-            _timerPeriod = Face.UpdateSpeed;
-            _timer = new Timer(state =>
+            var timer = new Timer(state =>
             {
 
-                Render();
+               Render();
 
-            }, null, 1, _timerPeriod);
+            }, null, 1, Face.UpdateSpeed);
             
             Thread.Sleep(Timeout.Infinite);
         }

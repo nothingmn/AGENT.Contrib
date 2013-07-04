@@ -12,7 +12,7 @@ namespace WeatherFace
     {
         public Agent.Contrib.Settings.ISettings Settings { get; set; }
 
-        public IProvideWeather WeatherProvider { get; set; }
+        public IWeatherForecast CurrentConditions { get; set; }
 
         private Drawing drawing = new Drawing();
         private Font font = Resources.GetFont(Resources.FontResources.Digital714point);
@@ -23,63 +23,56 @@ namespace WeatherFace
         private int buffer = 7;
         private int top = 10;
 
-        public void Render(Microsoft.SPOT.Bitmap screen)
+        public WeatherWatchFace()
         {
-            screen.DrawLine(Color.White, 2, 0, AGENT.Size / 2, AGENT.Size, AGENT.Size / 2);
+            CurrentConditions = WeatherProvider.Current;
+            CurrentConditions.OnWeatherUpdated += CurrentConditions_OnWeatherUpdated;
+        }
+
+        void CurrentConditions_OnWeatherUpdated(IWeatherForecast _weatherForecastProvider)
+        {
+            if (_screen != null)
+            {
+                //clear the display
+                _screen.Clear();
+
+                Render(null);
+
+
+                //flush the image out to the device
+                _screen.Flush();
+            }
+        }
+
+        private Bitmap _screen = null;
+
+        public void Render(Bitmap screen)
+        {
+            
+            if (_screen == null) _screen = screen;
+            _screen.DrawLine(Color.White, 2, 0, AGENT.Size/2, AGENT.Size, AGENT.Size/2);
 
             DateTime now = DateTime.Now;
-            int counter = (int)now.DayOfWeek;
+            int counter = (int) now.DayOfWeek;
             counter++;
             int left = buffer;
-            IForecast nowForecast = null;
-            bool needsDate = false;
-            DateTime lastUpdated = DateTime.Now;
             for (int x = 0; x <= days; x++)
             {
                 if (counter >= 7) counter = 0;
                 string dayName = System.Globalization.DateTimeFormatInfo.CurrentInfo.DayNames[counter];
                 if (dayName.Length >= 3) dayName = dayName.Substring(0, 3);
                 int width = drawing.MeasureString(dayName, font);
-                screen.DrawText(dayName, font, Color.White, left, top);
-                if (WeatherProvider != null && WeatherProvider.CurrentWeekForecast != null && WeatherProvider.CurrentWeekForecast.Count > 0)
-                {
-                    IForecast current = WeatherProvider.CurrentWeekForecast[0] as IForecast;
-                    var startDate = now.Date.AddDays(x);
-                    foreach (IForecast f in WeatherProvider.CurrentWeekForecast)
-                    {
-                        if (f.TimeStamp.Year == now.Date.Year && f.TimeStamp.Month == now.Date.Month && f.TimeStamp.Day == now.Date.Day)
-                            nowForecast = f;
-                        if (startDate.Year == f.TimeStamp.Year && startDate.Month == f.TimeStamp.Month && startDate.Day == f.TimeStamp.Day)
-                        {
-                            Debug.Print("Found match");
-                            current = f;
-                            break;
-                        }
-                    }
-                    if (current != null)
-                    {
-                        needsDate = true;
-                        screen.DrawText(current.Temperature.ToString(), font, Color.White, left + 4, top + font.Height + 2);
-                        lastUpdated = current.TimeStamp;
-                    }
-                }
+                _screen.DrawText(dayName, font, Color.White, left, top);
+                IForecast current = CurrentConditions.CurrentWeekForecast[x] as IForecast;
+                _screen.DrawText(current.Temperature.ToString(), font, Color.White, left + 4, top + font.Height + 2);
                 counter++;
                 if (counter > 6) counter = 0;
                 left += width + buffer;
             }
-            if (nowForecast != null)
-            {
-                string display = nowForecast.Temperature.ToString();
-                int forecastLeft = AGENT.Size - drawing.MeasureString(display, bigfont);
-                screen.DrawText(display, bigfont, Color.White, forecastLeft, (AGENT.Size / 2) + 2);
-                needsDate = true;
-                lastUpdated = nowForecast.TimeStamp;
-            }
-            if (needsDate)
-            {
-                screen.DrawText(lastUpdated.ToString(), smallFont, Color.White, 3, (AGENT.Size / 2) - smallFont.Height - 1);
-
-            }
+            string display = CurrentConditions.CurrentForecast.Temperature.ToString();
+            int forecastLeft = AGENT.Size - drawing.MeasureString(display, bigfont);
+            _screen.DrawText(display, bigfont, Color.White, forecastLeft, (AGENT.Size/2) + 2);
+            _screen.DrawText(CurrentConditions.CurrentForecast.TimeStamp.ToString(), smallFont, Color.White, 3, (AGENT.Size / 2) - smallFont.Height - 1);
 
         }
 

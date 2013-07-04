@@ -68,8 +68,8 @@
     <Compile Include="Util\Random.cs" />
     <Compile Include="Weather\DayForecast.cs" />
     <Compile Include="Weather\IForecast.cs" />
-    <Compile Include="Weather\IProvideWeather.cs" />
-    <Compile Include="Weather\SimpleWeather.cs" />
+    <Compile Include="Weather\IWeatherForecast.cs" />
+    <Compile Include="Weather\SimpleWeatherForecast.cs" />
     <Compile Include="Weather\WeatherProvider.cs" />
   </ItemGroup>
   <ItemGroup>

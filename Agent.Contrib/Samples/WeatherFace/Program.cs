@@ -9,9 +9,7 @@ namespace WeatherFace
     {
         public static void Main()
         {
-            WeatherWatchFace face = new WeatherWatchFace();
-            face.WeatherProvider = WeatherProvider.Current;
-            var watch = new WatchFace(face);
+            var watch = new WatchFace(new WeatherWatchFace());
             watch.Start();
         }
 

@@ -4,7 +4,7 @@ using Microsoft.SPOT;
 
 namespace Agent.Contrib.Weather
 {
-    public interface IProvideWeather
+    public interface IWeatherForecast
     {
         event WeatherUpdated OnWeatherUpdated;
         IForecast CurrentForecast { get; }

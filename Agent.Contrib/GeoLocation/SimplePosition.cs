@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Microsoft.SPOT;
 
 namespace Agent.Contrib.GeoLocation
@@ -22,6 +23,17 @@ namespace Agent.Contrib.GeoLocation
                     Longitude = -122.34,
                     Speed = 0
                 };
+
+            System.Threading.Timer geoTimer = new Timer(updatePosition, null, 5000, 5000);
         }
+
+        private void updatePosition(object state)
+        {
+            Coordinates.Latitude += 0.5;
+            Coordinates.Longitude += 0.5;
+            if (OnPositionUpdated != null) OnPositionUpdated(this);
+        }
+
+        public event PositionUpdated OnPositionUpdated;
     }
 }

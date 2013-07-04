@@ -7,5 +7,7 @@ namespace Agent.Contrib.GeoLocation
     {
         ICoordinate Coordinates { get; set; }
         DateTime TimeStamp { get; set; }
+
+        event PositionUpdated OnPositionUpdated;
     }
 }

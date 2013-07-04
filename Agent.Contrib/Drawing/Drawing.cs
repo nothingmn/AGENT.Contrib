@@ -11,6 +11,60 @@ namespace Agent.Contrib.Drawing
         private static object _screenLock = new object();
         private static Bitmap _screen;
 
+
+        /// <summary>
+        /// This method fills an area which surrounded by line(s). Not only polygon but also circle, pentagram, cloud shaped... any figure. Only you need to fill is set Bitmap, Color, certain X and Y to argument. Both X and Y should be exist inner line(s).
+        /// </summary>
+        /// <param name="screen"></param>
+        /// <param name="color"></param>
+        public void FillArea(Bitmap screen, Color color, Point point)
+        {
+
+            int currentY = 0;
+            int minY = 0;
+            int maxY = 0;
+
+            //screen.SetPixel(x, y, color);
+
+            currentY = point.Y - 1;
+
+            while (currentY >= 0 && screen.GetPixel(point.X, currentY) != color)
+            {
+                screen.SetPixel(point.X, currentY, color);
+                currentY--;
+            }
+
+            minY = currentY + 1;
+
+            currentY = point.Y;
+
+            while (currentY < screen.Height && screen.GetPixel(point.X, currentY) != color)
+            {
+                screen.SetPixel(point.X, currentY, color);
+                currentY++;
+            }
+
+            maxY = currentY - 1;
+
+
+            for (int i = minY; i < maxY; i++)
+            {
+
+                if (point.X > 0 && screen.GetPixel(point.X - 1, i) != color)
+                {
+                    FillArea(screen, color, new Point(point.X - 1, i));
+                }
+
+                if (point.X < screen.Width - 1 && screen.GetPixel(point.X + 1, i) != color)
+                {
+                    FillArea(screen, color, new Point(point.X + 1, i));
+                }
+
+            }
+
+        }
+
+
         /// <summary>
         /// Lazy loaded default bitmap set tot he maxwidth and height once called.
         /// A static instance will be held for the lifetime of the app, unless you destory it.

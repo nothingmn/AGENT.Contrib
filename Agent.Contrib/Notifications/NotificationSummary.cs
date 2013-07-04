@@ -13,7 +13,7 @@ namespace Agent.Contrib.Notifications
                 {
                     if (n.Type == "Email") EmailCount++;
                     if (n.Type == "Text") TextCount++;
-                    if (n.Type == "Calendar") CalendarCount++;
+                    if (n.Type == "MissedCall") MissedCallCount++;
                     if (n.Type == "Voice") VoiceCount++;
 
                 }
@@ -23,6 +23,6 @@ namespace Agent.Contrib.Notifications
         public int EmailCount { get; set; }
         public int TextCount { get; set; }
         public int VoiceCount { get; set; }
-        public int CalendarCount { get; set; }
+        public int MissedCallCount { get; set; }
     }
 }

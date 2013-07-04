@@ -407,7 +407,7 @@ namespace Agent.Contrib.Drawing
             screen.DrawText(level.ToString(), font, Color.White, 15, -2);
 
             var notificationSummary = new NotificationSummary(notificationProvider);
-            if (notificationSummary.CalendarCount > 99) notificationSummary.CalendarCount = 99;
+            if (notificationSummary.MissedCallCount > 99) notificationSummary.MissedCallCount = 99;
             if (notificationSummary.EmailCount > 99) notificationSummary.EmailCount = 99;
             if (notificationSummary.TextCount > 99) notificationSummary.TextCount = 99;
             if (notificationSummary.VoiceCount > 99) notificationSummary.VoiceCount = 99;
@@ -430,11 +430,11 @@ namespace Agent.Contrib.Drawing
                 screen.DrawImage(83, 0, VoiceMailImage, 0, 0, VoiceMailImage.Width, VoiceMailImage.Height);
                 screen.DrawText(notificationSummary.VoiceCount.ToString(), font, Color.White, 95, -2);
             }
-            if (notificationSummary.CalendarCount > 0)
+            if (notificationSummary.MissedCallCount > 0)
             {
-                Debug.Print("ToDo: " + notificationSummary.CalendarCount.ToString());
+                Debug.Print("Missed Calls: " + notificationSummary.MissedCallCount.ToString());
                 screen.DrawImage(106, 0, CalendarImage, 0, 0, CalendarImage.Width, CalendarImage.Height);
-                screen.DrawText(notificationSummary.CalendarCount.ToString(), font, Color.White, 117, -2);
+                screen.DrawText(notificationSummary.MissedCallCount.ToString(), font, Color.White, 117, -2);
             }
 
 

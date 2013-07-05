@@ -38,6 +38,10 @@
       <DependentUpon>ContribResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Face\FaceWithTrayBase.cs" />
+    <Compile Include="Hardware\Accelerometer\AccelerometerProvider.cs" />
+    <Compile Include="Hardware\Accelerometer\IAccelerometer.cs" />
+    <Compile Include="Hardware\Accelerometer\RandomAccelerometer.cs" />
+    <Compile Include="Hardware\Accelerometer\Reading.cs" />
     <Compile Include="Notifications\NotificationSummary.cs" />
     <Compile Include="Util\Parse.cs" />
     <Compile Include="Drawing\Drawing.cs" />

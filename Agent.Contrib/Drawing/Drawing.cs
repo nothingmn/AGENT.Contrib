@@ -66,6 +66,131 @@ namespace Agent.Contrib.Drawing
 
 
         /// <summary>
+        /// Poly Fill types
+        /// EMPTY - only border
+        /// SOLID - flood fill
+        /// DOTS - . . . . 
+        /// GRID - ++++
+        /// VERTICAL - |||
+        /// HORIZONTAL - -----
+        /// </summary>
+        public enum PolyFill { 
+            POLYFILL_EMPTY,
+            POLYFILL_SOLID,
+            POLYFILL_DOTS,
+            POLYFILL_GRID,
+            POLYFILL_HORIZONTAL,
+            POLYFILL_VERTICAL
+        }
+
+        /// <summary>
+        /// Draws polygon from list of points and fill it with specififed pattern. 
+        /// </summary>
+        /// <param name="screen">Bitmap to draw on</param>
+        /// <param name="points">Array of points defining polygon</param>
+        /// <param name="borderColor">Color of poly border</param>
+        /// <param name="borderWidth">Poly border width</param>
+        /// <param name="fillColor">Color to use to fill poly</param>
+        /// <param name="polyFill">Fill patern. Empty will simply draw unfilled poly</param>
+        public static void DrawPoly(Bitmap screen, Point[] points, Color borderColor, short borderWidth, Color fillColor, PolyFill polyFill)
+        {
+            if (points.Length < 3) return; // we need at least 3 point for poly
+
+            if (borderWidth < 1)
+                borderWidth = 1;
+
+            if (polyFill == PolyFill.POLYFILL_EMPTY)
+                _DrawUnfilledPoly(screen, points, borderColor, borderWidth, new Point(0,0));
+            else
+            {
+                Point br = new Point(0,0), tl = new Point(screen.Width - 1, screen.Height - 1);
+                // find bounding box
+                for (int i = 0; i < points.Length; ++i)
+                {
+                    tl.X = (tl.X > points[i].X) ? points[i].X : tl.X;
+                    tl.Y = (tl.Y > points[i].Y) ? points[i].Y : tl.Y;
+                    br.X = (br.X < points[i].X) ? points[i].X : br.X;
+                    br.Y = (br.Y < points[i].Y) ? points[i].Y : br.X;
+                }
+
+                // adjust binding box to fit thick border
+                if (borderWidth > 1)
+                {
+                    tl.X = (short)((tl.X > borderWidth)? tl.X - borderWidth: 0);
+                    tl.Y = (short)((tl.Y > borderWidth) ? tl.Y - borderWidth : 0);
+                    br.X = (short)((br.X + borderWidth < (screen.Width - 1))? br.X - borderWidth: 0);
+                    br.Y = (short)((br.Y + borderWidth < (screen.Width - 1)) ? br.Y - borderWidth : 0);
+                }
+                
+                // we need separate bitmap to draw poly as one specififed can have some drawing already and we won't be able to detect border properly
+                Bitmap buffer = new Bitmap((br.X - tl.X), (br.Y - tl.Y));
+
+                // fill bitmap with color opposite to border color
+                if (borderColor == Color.Black)
+                    buffer.DrawRectangle(Color.White, 0, 0, 0, buffer.Width, buffer.Height, 0, 0, Color.White, 0, 0, Color.White, buffer.Width, buffer.Height, 0xFF);
+                else
+                    buffer.DrawRectangle(Color.Black, 0, 0, 0, buffer.Width, buffer.Height, 0, 0, Color.Black, 0, 0, Color.Black, buffer.Width, buffer.Height, 0xFF);
+
+                _DrawUnfilledPoly(buffer, points, borderColor, borderWidth, tl);
+
+                // scan created bitmap
+                bool isInside = false, onBorder = false;
+                for (int y = 0; y < buffer.Height; ++y)
+                {
+                    isInside = false;
+                    onBorder = false;
+                    for (int x = 0; x < buffer.Width; ++x)
+                    {
+                        if (buffer.GetPixel(x, y) == borderColor)
+                        {
+                            if (onBorder)
+                            {
+                                // still on border
+                                screen.SetPixel(x + tl.X, y + tl.Y, borderColor);
+                            }
+                            else
+                            {
+                                // we have reached border from inside/outside
+                                isInside = !isInside;
+                                onBorder = true;
+                                screen.SetPixel(x + tl.X, y + tl.Y, borderColor);
+                            }
+                        }
+                        else
+                        {
+                            if (onBorder)
+                            {
+                                // end of border
+                                onBorder = false;
+                            }
+
+                            if (isInside)
+                                _fillPixel(screen, x, y, polyFill, fillColor);
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        private static void _fillPixel(Bitmap screen, int x, int y, PolyFill polyFill, Color fillColor)
+        {
+            if (polyFill == PolyFill.POLYFILL_SOLID) screen.SetPixel(x, y, fillColor);
+        }
+
+        private static void _DrawUnfilledPoly(Bitmap screen, Point[] points, Color borderColor, short borderWidth, Point basePoint)
+        {
+            for (int i = 0; i < points.Length - 1; ++i)
+            {
+                screen.DrawLine(borderColor, borderWidth, points[i].X - basePoint.X, points[i].Y - basePoint.Y, points[i + 1].X - basePoint.X, points[i + 1].Y - basePoint.Y);
+            }
+
+            screen.DrawLine(borderColor, borderWidth, points[0].X - basePoint.X, points[0].Y - basePoint.Y, points[points.Length - 1].X - basePoint.X, points[points.Length - 1].Y - basePoint.Y);
+        }
+
+
+        /// <summary>
         /// Lazy loaded default bitmap set tot he maxwidth and height once called.
         /// A static instance will be held for the lifetime of the app, unless you destory it.
         /// </summary>
@@ -277,7 +402,7 @@ namespace Agent.Contrib.Drawing
             if (minuteWidth > 0) PaintMinuteHand(screen, foreColor, minuteWidth, minute, second);
             if (secondWidth > 0) PaintSecondHand(screen, foreColor, secondWidth, second);
 
-            screen.DrawEllipse(foreColor, 1, AGENT.Center.X, AGENT.Center.Y, 3, 3, Color.White, 0, 0, Color.White, 0, 0,
+            screen.DrawEllipse(foreColor, 1, AGENT.Center.X, AGENT.Center.Y, 3, 3, Color.Black, 0, 0, Color.White, 0, 0,
                                255);
             screen.DrawEllipse(foreColor, 1, AGENT.Center.X, AGENT.Center.Y, 2, 2, Color.Black, 0, 0, Color.White, 0, 0,
                                255);

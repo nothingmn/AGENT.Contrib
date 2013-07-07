@@ -37,10 +37,10 @@ namespace PolyFillDemo
                                 new Point(50, 30)
                           };
 
-            Drawing.DrawPoly(screen, sq, Color.White, 2, Color.White, Drawing.PolyFill.POLYFILL_SOLID);
-            Drawing.DrawPoly(screen, sq3, Color.White, 2, Color.White, Drawing.PolyFill.POLYFILL_EMPTY);
-            Drawing.DrawPoly(screen, sq2, Color.White, 1, Color.White, Drawing.PolyFill.POLYFILL_CROSS_RIGHT);
-            Drawing.DrawPoly(screen, sq4, Color.Black, 2, Color.White, Drawing.PolyFill.POLYFILL_DOTS);
+            Drawing.DrawPoly(screen, sq, Color.White, 2, Color.White, PolyFill.POLYFILL_SOLID);
+            Drawing.DrawPoly(screen, sq3, Color.White, 2, Color.White, PolyFill.POLYFILL_EMPTY);
+            Drawing.DrawPoly(screen, sq2, Color.White, 1, Color.White, PolyFill.POLYFILL_CROSS_RIGHT);
+            Drawing.DrawPoly(screen, sq4, Color.Black, 2, Color.White, PolyFill.POLYFILL_DOTS);
             
 
         }

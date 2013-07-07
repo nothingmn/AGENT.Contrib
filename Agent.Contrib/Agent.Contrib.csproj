@@ -31,13 +31,24 @@
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
     <Compile Include="AGENT.cs" />
-    <Compile Include="Communication\IChannel.cs" />
+    <Compile Include="Communication\Channels\BaseChannel.cs" />
+    <Compile Include="Communication\Channels\ByteChannel.cs" />
+    <Compile Include="Communication\Channels\StringChannel.cs" />
+    <Compile Include="Communication\Channels\IChannel.cs" />
     <Compile Include="ContribResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ContribResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Drawing\HAlign.cs" />
+    <Compile Include="Drawing\PolyFill.cs" />
+    <Compile Include="Drawing\VAlign.cs" />
     <Compile Include="Face\FaceWithTrayBase.cs" />
+    <Compile Include="Hardware\Accelerometer\AccelerometerProvider.cs" />
+    <Compile Include="Hardware\Accelerometer\IAccelerometer.cs" />
+    <Compile Include="Hardware\Accelerometer\RandomAccelerometer.cs" />
+    <Compile Include="Hardware\Accelerometer\Reading.cs" />
+    <Compile Include="Hardware\Bluetooth\Connection.cs" />
     <Compile Include="Notifications\NotificationSummary.cs" />
     <Compile Include="Util\Parse.cs" />
     <Compile Include="Drawing\Drawing.cs" />
@@ -76,6 +87,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.Graphics" />
     <Reference Include="Microsoft.SPOT.Hardware" />
+    <Reference Include="Microsoft.SPOT.Hardware.SerialPort" />
     <Reference Include="Microsoft.SPOT.Native">
     </Reference>
   </ItemGroup>

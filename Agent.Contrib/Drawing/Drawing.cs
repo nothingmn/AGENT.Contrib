@@ -11,6 +11,76 @@ namespace Agent.Contrib.Drawing
         private static object _screenLock = new object();
         private static Bitmap _screen;
 
+        /// <summary>
+        /// Draw text in a vertical and horizontal position
+        /// When "align" is "Center" then "margin" is ignored.
+        /// Also when "vAlign" is "Middle" then "vMargin"  is ignored.
+        /// </summary>
+        /// <param name="screen"></param>
+        /// <param name="color"></param>
+        /// <param name="font"></param>
+        /// <param name="inString"></param>
+        /// <param name="align"></param>
+        /// <param name="margin"></param>
+        /// <param name="vAlign"></param>
+        /// <param name="vMargin"></param>
+        public void DrawAlignedText(Bitmap screen, Color color, Font font, string inString, HAlign align, int margin, VAlign vAlign, int vMargin)
+        {
+
+            Point p = new Point();
+            var stringWidth = MeasureString(inString, font);
+            var stringHeight = 0;
+            var textAreaLength = 0;
+           
+
+            switch (align)
+            {
+
+                case HAlign.Left:
+
+                    p.X = margin + 1;
+                    break;
+
+                case HAlign.Center:
+
+                    textAreaLength = screen.Width - (margin * 2);
+                    p.X = margin + ((textAreaLength - stringWidth) / 2);
+                    break;
+
+                case HAlign.Right:
+
+                    textAreaLength = screen.Width - margin;
+                    p.X = textAreaLength - stringWidth;
+                    break;
+
+            }
+
+            stringHeight = font.Height;
+
+            switch (vAlign)
+            {
+
+                case VAlign.Top:
+
+                    p.Y = vMargin + 1;
+                    break;
+
+                case VAlign.Middle:
+
+                    p.Y= (screen.Height / 2) - (stringHeight / 2);
+                    break;
+
+                case VAlign.Bottom:
+
+                    p.Y = screen.Height - stringHeight - vMargin;
+                    break;
+
+            }
+
+            screen.DrawText(inString, font, color, p.X, p.Y);
+
+        }
+
 
         /// <summary>
         /// This method fills an area which surrounded by line(s). Not only polygon but also circle, pentagram, cloud shaped... any figure. Only you need to fill is set Bitmap, Color, certain X and Y to argument. Both X and Y should be exist inner line(s).
@@ -62,6 +132,166 @@ namespace Agent.Contrib.Drawing
 
             }
 
+        }
+
+
+
+        private static byte[] polyfill_horizontal = { 0x00, 0x00, 0x00, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00 };
+        private static byte[] polyfill_vertical = { 0x00, 0xFF, 0x00, 0x00, 0xFF, 0x00, 0x00, 0xFF, 0x00 };
+        private static byte[] polyfill_dots = { 0x00, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0x00 };
+        private static byte[] polyfill_grid = { 0x00, 0xFF, 0x00, 0xFF, 0xFF, 0xFF, 0x00, 0xFF, 0x00 };
+        private static byte[] polyfill_cross_left = { 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF };
+        private static byte[] polyfill_cross_right = { 0x00, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0x00 };
+
+        /// <summary>
+        /// Draws polygon from list of points and fill it with specififed pattern. 
+        /// </summary>
+        /// <param name="screen">Bitmap to draw on</param>
+        /// <param name="points">Array of points defining polygon</param>
+        /// <param name="borderColor">Color of poly border</param>
+        /// <param name="borderWidth">Poly border width</param>
+        /// <param name="fillColor">Color to use to fill poly</param>
+        /// <param name="polyFill">Fill patern. Empty will simply draw unfilled poly</param>
+        public void DrawPoly(Bitmap screen, Point[] points, Color borderColor, short borderWidth, Color fillColor, PolyFill polyFill)
+        {
+            if (points.Length < 3) return; // we need at least 3 point for poly
+
+            if (borderWidth < 1)
+                borderWidth = 1;
+
+            Color fgColor, bgColor;
+
+            if (fillColor == Color.Black)
+            {
+                fgColor = Color.Black;
+                bgColor = Color.White;
+            }
+            else
+            {
+                fgColor = Color.White;
+                bgColor = Color.Black;
+
+            }
+
+            if (polyFill == PolyFill.POLYFILL_EMPTY)
+                _DrawUnfilledPoly(screen, points, borderColor, borderWidth, new Point(0, 0));
+            else
+            {
+                Point br = new Point(0, 0), tl = new Point(screen.Width, screen.Height);
+                // find bounding box
+                for (int i = 0; i < points.Length; ++i)
+                {
+                    tl.X = (tl.X > points[i].X) ? points[i].X : tl.X;
+                    tl.Y = (tl.Y > points[i].Y) ? points[i].Y : tl.Y;
+                    br.X = (br.X < points[i].X) ? points[i].X : br.X;
+                    br.Y = (br.Y < points[i].Y) ? points[i].Y : br.X;
+                }
+
+                // adjust binding box to fit thick border. Foê some reason SPOT.Bitmap double the border width (at least on emulator)
+                if (borderWidth > 1)
+                {
+                    tl.X = (short)((tl.X > borderWidth) ? tl.X - borderWidth * 2 : 0);
+                    tl.Y = (short)((tl.Y > borderWidth) ? tl.Y - borderWidth * 2 : 0);
+                    br.X = (short)((br.X + borderWidth < (screen.Width - 1)) ? br.X + borderWidth * 1.5 : 0);
+                    br.Y = (short)((br.Y + borderWidth < (screen.Width - 1)) ? br.Y + borderWidth * 1.5 : 0);
+                }
+
+                // we need separate bitmap to draw poly as one specififed can have some drawing already and we won't be able to detect border properly
+                Bitmap buffer = new Bitmap((br.X - tl.X + 1), (br.Y - tl.Y + 1));
+
+                // fill bitmap with color opposite to border color
+                if (borderColor == Color.Black)
+                    buffer.DrawRectangle(Color.White, 0, 0, 0, buffer.Width, buffer.Height, 0, 0, Color.White, 0, 0, Color.White, buffer.Width, buffer.Height, 0xFF);
+                else
+                    buffer.DrawRectangle(Color.Black, 0, 0, 0, buffer.Width, buffer.Height, 0, 0, Color.Black, 0, 0, Color.Black, buffer.Width, buffer.Height, 0xFF);
+
+                _DrawUnfilledPoly(buffer, points, borderColor, borderWidth, tl);
+
+                // scan created bitmap
+                bool isInside = false, onBorder = false;
+                int startX = -1, borderStart = -1;
+                for (int y = 0; y < buffer.Height; ++y)
+                {
+                    isInside = false;
+                    onBorder = false;
+                    startX = -1;
+                    borderStart = -1;
+                    for (int x = 0; x < buffer.Width; ++x)
+                    {
+                        if (buffer.GetPixel(x, y) == borderColor)
+                        {
+                            if (onBorder)
+                            {
+                                // still on border
+                                screen.SetPixel(x + tl.X, y + tl.Y, borderColor);
+                            }
+                            else
+                            {
+                                // we have reached border from inside/outside
+                                if (isInside)
+                                {
+                                    //isInside = false;
+                                    if (startX >= 0)
+                                    {
+                                        // draw pattern line
+                                        for (int k = startX; k < x; ++k)
+                                        {
+                                            if (polyFill == PolyFill.POLYFILL_SOLID) screen.SetPixel(k + tl.X, y + tl.Y, fgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_HORIZONTAL)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_horizontal[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_HORIZONTAL)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_horizontal[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_VERTICAL)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_vertical[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_DOTS)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_dots[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_GRID)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_grid[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_CROSS_LEFT)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_cross_left[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_CROSS_RIGHT)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_cross_right[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+
+                                        }
+                                        startX = -1;
+                                    }
+                                }
+                                onBorder = true;
+                                borderStart = x;
+                                screen.SetPixel(x + tl.X, y + tl.Y, borderColor);
+                            }
+                        }
+                        else
+                        {
+                            if (onBorder)
+                            {
+                                // end of border
+                                if (!((x - borderStart) > borderWidth * 4))
+                                    // if long this is not border, this is poly edge - we are still on the same side
+                                    isInside = !isInside;
+
+                                onBorder = false;
+                                borderStart = -1;
+                                if (isInside)
+                                    startX = x;
+                            }
+
+                        }
+                    }
+                }
+                buffer.Dispose();
+            }
+
+        }
+
+        private static void _DrawUnfilledPoly(Bitmap screen, Point[] points, Color borderColor, short borderWidth, Point basePoint)
+        {
+            for (int i = 0; i < points.Length - 1; ++i)
+            {
+                screen.DrawLine(borderColor, borderWidth, points[i].X - basePoint.X, points[i].Y - basePoint.Y, points[i + 1].X - basePoint.X, points[i + 1].Y - basePoint.Y);
+            }
+
+            screen.DrawLine(borderColor, borderWidth, points[0].X - basePoint.X, points[0].Y - basePoint.Y, points[points.Length - 1].X - basePoint.X, points[points.Length - 1].Y - basePoint.Y);
         }
 
 

@@ -152,7 +152,7 @@ namespace Agent.Contrib.Drawing
         /// <param name="borderWidth">Poly border width</param>
         /// <param name="fillColor">Color to use to fill poly</param>
         /// <param name="polyFill">Fill patern. Empty will simply draw unfilled poly</param>
-        public static void DrawPoly(Bitmap screen, Point[] points, Color borderColor, short borderWidth, Color fillColor, PolyFill polyFill)
+        public void DrawPoly(Bitmap screen, Point[] points, Color borderColor, short borderWidth, Color fillColor, PolyFill polyFill)
         {
             if (points.Length < 3) return; // we need at least 3 point for poly
 

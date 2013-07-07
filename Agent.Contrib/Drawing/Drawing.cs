@@ -11,6 +11,19 @@ namespace Agent.Contrib.Drawing
         private static object _screenLock = new object();
         private static Bitmap _screen;
 
+        /// <summary>
+        /// Draw text in a vertical and horizontal position
+        /// When "align" is "Center" then "margin" is ignored.
+        /// Also when "vAlign" is "Middle" then "vMargin"  is ignored.
+        /// </summary>
+        /// <param name="screen"></param>
+        /// <param name="color"></param>
+        /// <param name="font"></param>
+        /// <param name="inString"></param>
+        /// <param name="align"></param>
+        /// <param name="margin"></param>
+        /// <param name="vAlign"></param>
+        /// <param name="vMargin"></param>
         public void DrawAlignedText(Bitmap screen, Color color, Font font, string inString, HAlign align, int margin, VAlign vAlign, int vMargin)
         {
 

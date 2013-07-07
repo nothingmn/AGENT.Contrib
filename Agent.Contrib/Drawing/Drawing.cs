@@ -64,7 +64,6 @@ namespace Agent.Contrib.Drawing
 
         }
 
-
         /// <summary>
         /// Poly Fill types
         /// EMPTY - only border
@@ -74,7 +73,8 @@ namespace Agent.Contrib.Drawing
         /// VERTICAL - |||
         /// HORIZONTAL - -----
         /// </summary>
-        public enum PolyFill { 
+        public enum PolyFill
+        {
             POLYFILL_EMPTY,
             POLYFILL_SOLID,
             POLYFILL_DOTS,
@@ -110,21 +110,23 @@ namespace Agent.Contrib.Drawing
 
             Color fgColor, bgColor;
 
-            if (fillColor == Color.Black) {
+            if (fillColor == Color.Black)
+            {
                 fgColor = Color.Black;
                 bgColor = Color.White;
             }
-            else {
+            else
+            {
                 fgColor = Color.White;
                 bgColor = Color.Black;
 
             }
 
             if (polyFill == PolyFill.POLYFILL_EMPTY)
-                _DrawUnfilledPoly(screen, points, borderColor, borderWidth, new Point(0,0));
+                _DrawUnfilledPoly(screen, points, borderColor, borderWidth, new Point(0, 0));
             else
             {
-                Point br = new Point(0,0), tl = new Point(screen.Width, screen.Height);
+                Point br = new Point(0, 0), tl = new Point(screen.Width, screen.Height);
                 // find bounding box
                 for (int i = 0; i < points.Length; ++i)
                 {
@@ -137,12 +139,12 @@ namespace Agent.Contrib.Drawing
                 // adjust binding box to fit thick border. Foê some reason SPOT.Bitmap double the border width (at least on emulator)
                 if (borderWidth > 1)
                 {
-                    tl.X = (short)((tl.X > borderWidth)? tl.X - borderWidth * 2: 0);
+                    tl.X = (short)((tl.X > borderWidth) ? tl.X - borderWidth * 2 : 0);
                     tl.Y = (short)((tl.Y > borderWidth) ? tl.Y - borderWidth * 2 : 0);
-                    br.X = (short)((br.X + borderWidth < (screen.Width - 1))? br.X + borderWidth * 1.5: 0);
-                    br.Y = (short)((br.Y + borderWidth < (screen.Width - 1)) ? br.Y + borderWidth * 1.5: 0);
+                    br.X = (short)((br.X + borderWidth < (screen.Width - 1)) ? br.X + borderWidth * 1.5 : 0);
+                    br.Y = (short)((br.Y + borderWidth < (screen.Width - 1)) ? br.Y + borderWidth * 1.5 : 0);
                 }
-                
+
                 // we need separate bitmap to draw poly as one specififed can have some drawing already and we won't be able to detect border properly
                 Bitmap buffer = new Bitmap((br.X - tl.X + 1), (br.Y - tl.Y + 1));
 
@@ -213,7 +215,7 @@ namespace Agent.Contrib.Drawing
                             if (onBorder)
                             {
                                 // end of border
-                                if ( ! ((x - borderStart) > borderWidth * 4))
+                                if (!((x - borderStart) > borderWidth * 4))
                                     // if long this is not border, this is poly edge - we are still on the same side
                                     isInside = !isInside;
 
@@ -454,7 +456,7 @@ namespace Agent.Contrib.Drawing
             if (minuteWidth > 0) PaintMinuteHand(screen, foreColor, minuteWidth, minute, second);
             if (secondWidth > 0) PaintSecondHand(screen, foreColor, secondWidth, second);
 
-            screen.DrawEllipse(foreColor, 1, AGENT.Center.X, AGENT.Center.Y, 3, 3, Color.Black, 0, 0, Color.White, 0, 0,
+            screen.DrawEllipse(foreColor, 1, AGENT.Center.X, AGENT.Center.Y, 3, 3, Color.White, 0, 0, Color.White, 0, 0,
                                255);
             screen.DrawEllipse(foreColor, 1, AGENT.Center.X, AGENT.Center.Y, 2, 2, Color.Black, 0, 0, Color.White, 0, 0,
                                255);

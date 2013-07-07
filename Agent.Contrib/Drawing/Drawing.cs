@@ -11,6 +11,63 @@ namespace Agent.Contrib.Drawing
         private static object _screenLock = new object();
         private static Bitmap _screen;
 
+        public void DrawAlignedText(Bitmap screen, Color color, Font font, string inString, HAlign align, int margin, VAlign vAlign, int vMargin)
+        {
+
+            Point p = new Point();
+            var stringWidth = MeasureString(inString, font);
+            var stringHeight = 0;
+            var textAreaLength = 0;
+           
+
+            switch (align)
+            {
+
+                case HAlign.Left:
+
+                    p.X = margin + 1;
+                    break;
+
+                case HAlign.Center:
+
+                    textAreaLength = screen.Width - (margin * 2);
+                    p.X = margin + ((textAreaLength - stringWidth) / 2);
+                    break;
+
+                case HAlign.Right:
+
+                    textAreaLength = screen.Width - margin;
+                    p.X = textAreaLength - stringWidth;
+                    break;
+
+            }
+
+            stringHeight = font.Height;
+
+            switch (vAlign)
+            {
+
+                case VAlign.Top:
+
+                    p.Y = vMargin + 1;
+                    break;
+
+                case VAlign.Middle:
+
+                    p.Y= (screen.Height / 2) - (stringHeight / 2);
+                    break;
+
+                case VAlign.Bottom:
+
+                    p.Y = screen.Height - stringHeight - vMargin;
+                    break;
+
+            }
+
+            screen.DrawText(inString, font, color, p.X, p.Y);
+
+        }
+
 
         /// <summary>
         /// This method fills an area which surrounded by line(s). Not only polygon but also circle, pentagram, cloud shaped... any figure. Only you need to fill is set Bitmap, Color, certain X and Y to argument. Both X and Y should be exist inner line(s).

@@ -37,6 +37,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ContribResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Drawing\HAlign.cs" />
+    <Compile Include="Drawing\VAlign.cs" />
     <Compile Include="Face\FaceWithTrayBase.cs" />
     <Compile Include="Hardware\Accelerometer\AccelerometerProvider.cs" />
     <Compile Include="Hardware\Accelerometer\IAccelerometer.cs" />

@@ -80,8 +80,17 @@ namespace Agent.Contrib.Drawing
             POLYFILL_DOTS,
             POLYFILL_GRID,
             POLYFILL_HORIZONTAL,
-            POLYFILL_VERTICAL
+            POLYFILL_VERTICAL,
+            POLYFILL_CROSS_LEFT,
+            POLYFILL_CROSS_RIGHT,
         }
+
+        private static byte[] polyfill_horizontal = { 0x00, 0x00, 0x00, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00 };
+        private static byte[] polyfill_vertical = { 0x00, 0xFF, 0x00, 0x00, 0xFF, 0x00, 0x00, 0xFF, 0x00 };
+        private static byte[] polyfill_dots = { 0x00, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0x00 };
+        private static byte[] polyfill_grid = { 0x00, 0xFF, 0x00, 0xFF, 0xFF, 0xFF, 0x00, 0xFF, 0x00 };
+        private static byte[] polyfill_cross_left = { 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF };
+        private static byte[] polyfill_cross_right = { 0x00, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0x00 };
 
         /// <summary>
         /// Draws polygon from list of points and fill it with specififed pattern. 
@@ -99,11 +108,23 @@ namespace Agent.Contrib.Drawing
             if (borderWidth < 1)
                 borderWidth = 1;
 
+            Color fgColor, bgColor;
+
+            if (fillColor == Color.Black) {
+                fgColor = Color.Black;
+                bgColor = Color.White;
+            }
+            else {
+                fgColor = Color.White;
+                bgColor = Color.Black;
+
+            }
+
             if (polyFill == PolyFill.POLYFILL_EMPTY)
                 _DrawUnfilledPoly(screen, points, borderColor, borderWidth, new Point(0,0));
             else
             {
-                Point br = new Point(0,0), tl = new Point(screen.Width - 1, screen.Height - 1);
+                Point br = new Point(0,0), tl = new Point(screen.Width, screen.Height);
                 // find bounding box
                 for (int i = 0; i < points.Length; ++i)
                 {
@@ -113,17 +134,17 @@ namespace Agent.Contrib.Drawing
                     br.Y = (br.Y < points[i].Y) ? points[i].Y : br.X;
                 }
 
-                // adjust binding box to fit thick border
+                // adjust binding box to fit thick border. Foê some reason SPOT.Bitmap double the border width (at least on emulator)
                 if (borderWidth > 1)
                 {
-                    tl.X = (short)((tl.X > borderWidth)? tl.X - borderWidth: 0);
-                    tl.Y = (short)((tl.Y > borderWidth) ? tl.Y - borderWidth : 0);
-                    br.X = (short)((br.X + borderWidth < (screen.Width - 1))? br.X - borderWidth: 0);
-                    br.Y = (short)((br.Y + borderWidth < (screen.Width - 1)) ? br.Y - borderWidth : 0);
+                    tl.X = (short)((tl.X > borderWidth)? tl.X - borderWidth * 2: 0);
+                    tl.Y = (short)((tl.Y > borderWidth) ? tl.Y - borderWidth * 2 : 0);
+                    br.X = (short)((br.X + borderWidth < (screen.Width - 1))? br.X + borderWidth * 1.5: 0);
+                    br.Y = (short)((br.Y + borderWidth < (screen.Width - 1)) ? br.Y + borderWidth * 1.5: 0);
                 }
                 
                 // we need separate bitmap to draw poly as one specififed can have some drawing already and we won't be able to detect border properly
-                Bitmap buffer = new Bitmap((br.X - tl.X), (br.Y - tl.Y));
+                Bitmap buffer = new Bitmap((br.X - tl.X + 1), (br.Y - tl.Y + 1));
 
                 // fill bitmap with color opposite to border color
                 if (borderColor == Color.Black)
@@ -135,10 +156,13 @@ namespace Agent.Contrib.Drawing
 
                 // scan created bitmap
                 bool isInside = false, onBorder = false;
+                int startX = -1, borderStart = -1;
                 for (int y = 0; y < buffer.Height; ++y)
                 {
                     isInside = false;
                     onBorder = false;
+                    startX = -1;
+                    borderStart = -1;
                     for (int x = 0; x < buffer.Width; ++x)
                     {
                         if (buffer.GetPixel(x, y) == borderColor)
@@ -151,8 +175,36 @@ namespace Agent.Contrib.Drawing
                             else
                             {
                                 // we have reached border from inside/outside
-                                isInside = !isInside;
+                                if (isInside)
+                                {
+                                    //isInside = false;
+                                    if (startX >= 0)
+                                    {
+                                        // draw pattern line
+                                        for (int k = startX; k < x; ++k)
+                                        {
+                                            if (polyFill == PolyFill.POLYFILL_SOLID) screen.SetPixel(k + tl.X, y + tl.Y, fgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_HORIZONTAL)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_horizontal[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_HORIZONTAL)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_horizontal[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_VERTICAL)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_vertical[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_DOTS)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_dots[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_GRID)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_grid[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_CROSS_LEFT)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_cross_left[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+                                            else if (polyFill == PolyFill.POLYFILL_CROSS_RIGHT)
+                                                screen.SetPixel(k + tl.X, y + tl.Y, (polyfill_cross_right[k % 3 + 3 * (y % 3)] == 0xFF) ? fgColor : bgColor);
+
+                                        }
+                                        startX = -1;
+                                    }
+                                }
                                 onBorder = true;
+                                borderStart = x;
                                 screen.SetPixel(x + tl.X, y + tl.Y, borderColor);
                             }
                         }
@@ -161,22 +213,22 @@ namespace Agent.Contrib.Drawing
                             if (onBorder)
                             {
                                 // end of border
+                                if ( ! ((x - borderStart) > borderWidth * 4))
+                                    // if long this is not border, this is poly edge - we are still on the same side
+                                    isInside = !isInside;
+
                                 onBorder = false;
+                                borderStart = -1;
+                                if (isInside)
+                                    startX = x;
                             }
 
-                            if (isInside)
-                                _fillPixel(screen, x, y, polyFill, fillColor);
                         }
                     }
                 }
-
+                buffer.Dispose();
             }
 
-        }
-
-        private static void _fillPixel(Bitmap screen, int x, int y, PolyFill polyFill, Color fillColor)
-        {
-            if (polyFill == PolyFill.POLYFILL_SOLID) screen.SetPixel(x, y, fillColor);
         }
 
         private static void _DrawUnfilledPoly(Bitmap screen, Point[] points, Color borderColor, short borderWidth, Point basePoint)

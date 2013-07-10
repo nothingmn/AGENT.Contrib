@@ -49,6 +49,8 @@
     <Compile Include="Hardware\Accelerometer\RandomAccelerometer.cs" />
     <Compile Include="Hardware\Accelerometer\Reading.cs" />
     <Compile Include="Hardware\Bluetooth\Connection.cs" />
+    <Compile Include="UI\Menu.cs" />
+    <Compile Include="UI\MenuItem.cs" />
     <Compile Include="Notifications\NotificationSummary.cs" />
     <Compile Include="Util\Parse.cs" />
     <Compile Include="Drawing\Drawing.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Settings\SettingsProvider.cs" />
     <Compile Include="Settings\SimpleSettings.cs" />
     <Compile Include="Util\Random.cs" />
+    <Compile Include="Util\ThreadUtil.cs" />
     <Compile Include="Weather\DayForecast.cs" />
     <Compile Include="Weather\IForecast.cs" />
     <Compile Include="Weather\IWeatherForecast.cs" />

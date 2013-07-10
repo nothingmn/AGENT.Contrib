@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyFillDemo", "Agent.Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicBluetooth", "Agent.Contrib\Samples\BasicBluetooth\BasicBluetooth.csproj", "{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent.Menu", "Agent.Contrib\Samples\Agent.Menu\Agent.Menu.csproj", "{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,6 +122,12 @@ Global
 		{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

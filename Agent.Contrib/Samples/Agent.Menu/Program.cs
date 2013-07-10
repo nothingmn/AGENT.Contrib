@@ -22,18 +22,18 @@ namespace Agent.MenuApp
 
             //setup our menu items
             menu.Items.Add(new MenuItem() { Title = "Hello", CommandName = "Hello", CommandArg = "World", Image = arrow });
-            menu.Items.Add(new MenuItem() { Title = "World", CommandName = "World", CommandArg = "World", Image = arrow });
-            menu.Items.Add(new MenuItem() {Title = "This is not so long", CommandName = "NotLong", CommandArg = "World"});
+            menu.Items.Add(new MenuItem() { Title = "World", CommandName = "World", CommandArg = "World" });
+            menu.Items.Add(new MenuItem() { Title = "This is not so long", CommandName = "NotLong", CommandArg = "World", Image = arrow });
             menu.Items.Add(new MenuItem() { Title = "This text is very very long", CommandName = "Long", CommandArg = "World" });
-            menu.Items.Add(new MenuItem() { Title = "Nice and short", CommandName = "Short", CommandArg = "World" });
+            menu.Items.Add(new MenuItem() { Title = "Nice and short", CommandName = "Short", CommandArg = "World", Image = arrow });
             menu.Items.Add(new MenuItem() { Title = "A", CommandName = "A", CommandArg = "A" });
-            menu.Items.Add(new MenuItem() { Title = "B", CommandName = "A", CommandArg = "A" });
+            menu.Items.Add(new MenuItem() { Title = "B", CommandName = "A", CommandArg = "A", Image = arrow });
             menu.Items.Add(new MenuItem() { Title = "C", CommandName = "A", CommandArg = "A" });
-            menu.Items.Add(new MenuItem() { Title = "D", CommandName = "A", CommandArg = "A" });
+            menu.Items.Add(new MenuItem() { Title = "D", CommandName = "A", CommandArg = "A", Image = arrow });
             menu.Items.Add(new MenuItem() { Title = "E", CommandName = "A", CommandArg = "A" });
-            menu.Items.Add(new MenuItem() { Title = "F", CommandName = "A", CommandArg = "A" });
+            menu.Items.Add(new MenuItem() { Title = "F", CommandName = "A", CommandArg = "A", Image = arrow });
             menu.Items.Add(new MenuItem() { Title = "G", CommandName = "A", CommandArg = "A" });
-            menu.Items.Add(new MenuItem() { Title = "H", CommandName = "A", CommandArg = "A" });
+            menu.Items.Add(new MenuItem() { Title = "H", CommandName = "A", CommandArg = "A", Image = arrow });
             menu.Items.Add(new MenuItem() { Title = "I", CommandName = "A", CommandArg = "A" });
 
             //responid to item clicks

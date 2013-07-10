@@ -1,12 +1,14 @@
 using System;
 using Microsoft.SPOT;
 
-/// Stopwatch implementation found on 
-/// http://forums.netduino.com/index.php?/topic/97-systemdiagnosticsstopwatch-class/
-/// Author : 
+
 namespace System.Diagnostics
 {
-    class Stopwatch
+    /// <summary>
+    /// Stopwatch implementation found on 
+    /// http://forums.netduino.com/index.php?/topic/97-systemdiagnosticsstopwatch-class/
+    /// </summary>
+    public class Stopwatch
     {
         private long m_startTicks = 0;
         private long m_stopTicks = 0;

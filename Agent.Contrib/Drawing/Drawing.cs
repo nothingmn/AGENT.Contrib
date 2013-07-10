@@ -8,6 +8,11 @@ namespace Agent.Contrib.Drawing
 {
     public class Drawing
     {
+
+        public Drawing(Bitmap screen = null)
+        {
+            _screen = screen;
+        }
         private static object _screenLock = new object();
         private static Bitmap _screen;
 

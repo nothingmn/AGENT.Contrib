@@ -23,6 +23,7 @@ namespace Agent.Contrib.UI
 
         public Menu(Font menuFont, Bitmap screen = null)
         {
+            ButtonHelper.ButtonSetup = new Buttons[] {Buttons.TopRight, Buttons.BottomRight, Buttons.MiddleRight};
             _screen = screen;
             if (_screen == null) _screen = new Bitmap(Bitmap.MaxWidth, Bitmap.MaxHeight);
 
@@ -44,13 +45,16 @@ namespace Agent.Contrib.UI
                 if (button == Buttons.BottomRight) SelectedIndex++;
                 if (SelectedIndex < 0) SelectedIndex = 0;
                 if (SelectedIndex >= Items.Count) SelectedIndex = Items.Count-1;
-                
+
                 if (button == Buttons.MiddleRight)
                 {
                     MenuItem item = (Items[SelectedIndex] as MenuItem);
                     if (OnMenuItemClicked != null) OnMenuItemClicked(this, item, time);
                 }
-                Render();
+                else
+                {
+                    Render();
+                }
             }
         }
 

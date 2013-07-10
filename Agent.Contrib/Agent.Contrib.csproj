@@ -49,9 +49,13 @@
     <Compile Include="Hardware\Accelerometer\RandomAccelerometer.cs" />
     <Compile Include="Hardware\Accelerometer\Reading.cs" />
     <Compile Include="Hardware\Bluetooth\Connection.cs" />
+    <Compile Include="Hardware\Viberate\DebugViberate.cs" />
+    <Compile Include="Hardware\Viberate\ViberateProvider.cs" />
+    <Compile Include="Hardware\Viberate\IViberate.cs" />
     <Compile Include="UI\Menu.cs" />
     <Compile Include="UI\MenuItem.cs" />
     <Compile Include="Notifications\NotificationSummary.cs" />
+    <Compile Include="Util\CountdownTimer.cs" />
     <Compile Include="Util\Parse.cs" />
     <Compile Include="Drawing\Drawing.cs" />
     <Compile Include="Drawing\Size.cs" />

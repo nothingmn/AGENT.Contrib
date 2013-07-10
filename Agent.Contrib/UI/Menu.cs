@@ -18,11 +18,12 @@ namespace Agent.Contrib.UI
         public int SelectedIndex { get; set; }
         public ArrayList Items { get; set; }
         private int _maxVisible = 0;
-
+        public bool AutoRenderOnButtonPress { get; set; }
         public Font MenuFont { get; set; }
 
         public Menu(Font menuFont, Bitmap screen = null)
         {
+            AutoRenderOnButtonPress = true;
             ButtonHelper.ButtonSetup = new Buttons[] {Buttons.TopRight, Buttons.BottomRight, Buttons.MiddleRight};
             _screen = screen;
             if (_screen == null) _screen = new Bitmap(Bitmap.MaxWidth, Bitmap.MaxHeight);
@@ -53,7 +54,7 @@ namespace Agent.Contrib.UI
                 }
                 else
                 {
-                    Render();
+                    if(AutoRenderOnButtonPress) Render();
                 }
             }
         }

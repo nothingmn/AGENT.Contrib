@@ -19,8 +19,20 @@ namespace Countdown.Viber.App
         private static Menu menu;
         private static Drawing _drawing;
 
+        private static void ResetAll()
+        {
+            menu.OnMenuItemClicked += menu_OnMenuItemClicked;
+            menu.AutoRenderOnButtonPress = true;
+            cdt.Change(Timeout.Infinite, Timeout.Infinite);
+            Agent.Contrib.Hardware.Viberate.ViberateProvider.Current.Viberate(5);
+            ShowMenu();
+
+        }
         public static void Main()
         {
+            MultiButtonHelper mbh = new MultiButtonHelper();
+            mbh.AddButtonHandler(new Buttons[]{ Buttons.TopRight, Buttons.BottomRight, }, new MultiButtonHelper.HandleClicks(ResetAll) );
+
             // initialize display buffer
             _display = new Bitmap(Bitmap.MaxWidth, Bitmap.MaxHeight);
             _drawing = new Drawing(_display);
@@ -46,29 +58,26 @@ namespace Countdown.Viber.App
 
         private static void ShowMenu()
         {
+            Debug.Print("Rendering menu");
             menu.Render();
 
         }
 
+        private static string FormatTimeIncrement(int increment)
+        {
+            string h = increment.ToString();
+            if (h[0] == '-') h = (increment * -1).ToString();
+            if (h.Length == 1) h = "0" + h;
+            return h;
+        }
         private static Timer cdt = new Timer(new TimerCallback(ShowCountDown), null, Timeout.Infinite, Timeout.Infinite);
 
         private static void ShowCountDown(object state)
         {
             _display.Clear();
             var remain = countdown.ReaminingDuration;
-            string h = remain.Hours.ToString();
-            if (h[0] == '-') h = (remain.Hours * -1).ToString();
-            if (h.Length == 1) h = "0" + h;
-            
-            string m = remain.Minutes.ToString();
-            if (m[0] == '-') m = (remain.Minutes * -1).ToString();
-            if (m.Length == 1) m = "0" + m;
 
-            string s = remain.Seconds.ToString();
-            if (s[0] == '-') s = (remain.Seconds * -1).ToString();
-            if (s.Length == 1) s = "0" + s;
-
-            var text = h + ":" + m + ":" + s;
+            var text = FormatTimeIncrement(remain.Hours) + ":" + FormatTimeIncrement(remain.Minutes) + ":" + FormatTimeIncrement(remain.Seconds);
 
             _drawing.DrawAlignedText(_display, Color.White, menuFont, text, HAlign.Center, 0, VAlign.Middle, 0);
             _display.Flush();
@@ -80,6 +89,8 @@ namespace Countdown.Viber.App
 
             if (Parse.TryParseInt(menuItem.CommandArg, out duration))
             {
+                menu.OnMenuItemClicked -= menu_OnMenuItemClicked;
+                menu.AutoRenderOnButtonPress = false;
                 TimeSpan ts = new TimeSpan(0, duration, 0);
                 countdown = new CountdownTimer(ts);
                 countdown.OnCountdownTimerElapsed += countdown_OnCountdownTimerElapsed;
@@ -91,10 +102,7 @@ namespace Countdown.Viber.App
 
         private static void countdown_OnCountdownTimerElapsed(CountdownTimer timer, DateTime Timestamp)
         {
-            Debug.Print("COUNT DOWN DONE");
-            cdt.Change(Timeout.Infinite, Timeout.Infinite);
-            Agent.Contrib.Hardware.Viberate.ViberateProvider.Current.Viberate(5);
-            ShowMenu();
+            ResetAll();
         }
 
     }

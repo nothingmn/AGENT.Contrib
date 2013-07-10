@@ -20,11 +20,11 @@ namespace Agent.Contrib.Util
         {
             get { return TimeSpan.FromTicks(DateTime.Now.Ticks - target.Ticks); }
         }
-
+        public bool IsRunning { get { return _isRunning; } }
         private long startTickCount;
         private DateTime target;
         private Timer countTimer;
-
+        private bool _isRunning = false;
         public CountdownTimer(TimeSpan duration)
         {
             _StartDuration = duration;
@@ -35,10 +35,12 @@ namespace Agent.Contrib.Util
         {
             var x = _StartDuration.Ticks / TimeSpan.TicksPerMillisecond;
             countTimer = new Timer(new TimerCallback(Fire), null, (int)x, Timeout.Infinite);
+            _isRunning = true;
         }
 
         private void Fire(object state)
         {
+            _isRunning = false;
             countTimer.Change(Timeout.Infinite, Timeout.Infinite);
             if (OnCountdownTimerElapsed != null) OnCountdownTimerElapsed(this, DateTime.Now);
         }

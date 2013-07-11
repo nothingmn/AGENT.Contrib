@@ -1,4 +1,5 @@
 ﻿using System;
+using Agent.Contrib.Communication.Channels;
 using Agent.Contrib.Drawing;
 using Agent.Contrib.Hardware;
 using Agent.Contrib.UI;
@@ -28,10 +29,13 @@ namespace Countdown.Viber.App
             ShowMenu();
 
         }
+
         public static void Main()
         {
+
             MultiButtonHelper mbh = new MultiButtonHelper();
-            mbh.AddButtonHandler(new Buttons[]{ Buttons.TopRight, Buttons.BottomRight, }, new MultiButtonHelper.HandleClicks(ResetAll) );
+            mbh.AddButtonHandler(new Buttons[] {Buttons.TopRight, Buttons.BottomRight,},
+                                 new MultiButtonHelper.HandleClicks(ResetAll));
 
             // initialize display buffer
             _display = new Bitmap(Bitmap.MaxWidth, Bitmap.MaxHeight);
@@ -39,8 +43,8 @@ namespace Countdown.Viber.App
 
             menu = new Menu(menuFont, _display);
             menu.OnMenuItemClicked += menu_OnMenuItemClicked;
-            menu.Items.Add(new MenuItem() { Title = "1 Minute", CommandArg = "1" });
-            menu.Items.Add(new MenuItem() { Title = "2 Minutes", CommandArg = "2" });
+            menu.Items.Add(new MenuItem() {Title = "1 Minute", CommandArg = "1"});
+            menu.Items.Add(new MenuItem() {Title = "2 Minutes", CommandArg = "2"});
             menu.Items.Add(new MenuItem() {Title = "3 Minutes", CommandArg = "3"});
             menu.Items.Add(new MenuItem() {Title = "4 Minutes", CommandArg = "4"});
             menu.Items.Add(new MenuItem() {Title = "5 Minutes", CommandArg = "5"});

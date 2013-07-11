@@ -7,6 +7,6 @@ namespace Agent.Contrib.Communication.Channels
     public interface IChannel
     {
         object Read(SerialPort port);
-        void Write(SerialPort port, object Data);
+        void Write(SerialPort port, object data);
     }
 }

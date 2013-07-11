@@ -6,6 +6,7 @@ namespace Agent.Contrib.Communication.Channels
 {
     public abstract class BaseChannel : IChannel
     {
+        public abstract object Read(System.IO.Ports.SerialPort port);
         public abstract void Write(SerialPort port, object Data);
         /// <summary>
         /// Get a string from the serial port.
@@ -18,23 +19,6 @@ namespace Agent.Contrib.Communication.Channels
             return new string(System.Text.Encoding.UTF8.GetChars(data));
         }
 
-        //protected string GetString(System.IO.Ports.SerialPort port)
-        //{
-        //    var ret = string.Empty;
-
-        //    var latestBype = port.ReadByte();
-
-        //    //Keep getting data until the latest byte is a zero byte
-        //    while (latestBype != 0)
-        //    {
-        //        var character = (char)latestBype;
-
-        //        ret += character;
-
-        //        latestBype = port.ReadByte();
-        //    }
-        //    return ret;
-        //}
         /// <summary>
         /// Get a  byte[] from the serial port.
         /// </summary>
@@ -58,6 +42,5 @@ namespace Agent.Contrib.Communication.Channels
             return buffer;
         }
 
-        public abstract object Read(System.IO.Ports.SerialPort port);
     }
 }

@@ -23,6 +23,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent.SimpleCalculator", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithButtons", "Agent.Contrib\Samples\FunWithButtons\FunWithButtons.csproj", "{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccelerometerDemo", "Agent.Contrib\Samples\AccelerometerDemo\AccelerometerDemo.csproj", "{3A0EA25B-236C-415C-8904-CB4B3552B722}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyFillDemo", "Agent.Contrib\Samples\PolyFillDemo\PolyFillDemo.csproj", "{56061836-AB21-4553-A596-C82381B25BD6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C13C6D79-545D-40EB-9F3C-8746C99C259C} = {C13C6D79-545D-40EB-9F3C-8746C99C259C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicBluetooth", "Agent.Contrib\Samples\BasicBluetooth\BasicBluetooth.csproj", "{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent.Menu", "Agent.Contrib\Samples\Agent.Menu\Agent.Menu.csproj", "{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Countdown.Viber.App", "Agent.Contrib\Samples\Countdown.Viber.App\Countdown.Viber.App.csproj", "{1716ED7E-9C46-42C0-A43F-014B3088C628}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +106,36 @@ Global
 		{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3A0EA25B-236C-415C-8904-CB4B3552B722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0EA25B-236C-415C-8904-CB4B3552B722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0EA25B-236C-415C-8904-CB4B3552B722}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3A0EA25B-236C-415C-8904-CB4B3552B722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0EA25B-236C-415C-8904-CB4B3552B722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0EA25B-236C-415C-8904-CB4B3552B722}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{56061836-AB21-4553-A596-C82381B25BD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56061836-AB21-4553-A596-C82381B25BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56061836-AB21-4553-A596-C82381B25BD6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{56061836-AB21-4553-A596-C82381B25BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56061836-AB21-4553-A596-C82381B25BD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56061836-AB21-4553-A596-C82381B25BD6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

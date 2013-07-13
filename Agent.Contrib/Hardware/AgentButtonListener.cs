@@ -44,7 +44,7 @@ namespace Agent.Contrib.Hardware
 		private Hashtable m_WatchedButtons;
 
 		/// <summary>
-		/// Map of uint Interrupt Port ID to InterruptPort
+		/// Map of Cpu.Pin Interrupt Port ID to InterruptPort
 		/// </summary>
 		private Hashtable m_InterruptPortIdToInterruptPortMap;
 
@@ -120,10 +120,10 @@ namespace Agent.Contrib.Hardware
 		private void OnInterrupt (uint data1, uint data2, DateTime time)
 		{
 			if (OnButtonStateChange == null // no listeners
-			    || !m_InterruptPortIdToInterruptPortMap.Contains (data1)) // not listening to the given port (shouldn't have fired anyway)
+			    || !m_InterruptPortIdToInterruptPortMap.Contains ((Cpu.Pin) data1)) // not listening to the given port (shouldn't have fired anyway)
 				return;
 
-			var ip = (InterruptPort) m_InterruptPortIdToInterruptPortMap[data1];
+			var ip = (InterruptPort) m_InterruptPortIdToInterruptPortMap[(Cpu.Pin) data1];
 			//data1 is the is the number of the pin of the switch
 			//data2 is the value if the button is pushed or released; 0 = down, 1 = up
 			OnButtonStateChange ((AgentButton) data1, ip, (AgentButtonState) data2, time);

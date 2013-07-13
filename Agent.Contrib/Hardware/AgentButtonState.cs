@@ -1,6 +1,3 @@
-using System;
-using Microsoft.SPOT;
-
 namespace Agent.Contrib.Hardware
 {
     public enum AgentButtonState

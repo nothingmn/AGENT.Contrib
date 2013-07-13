@@ -25,20 +25,8 @@ namespace Agent.Contrib.Communication.Channels
         /// <returns>The byte[] that has been sent by the other application</returns>
         protected byte[] GetBytes(SerialPort port)
         {
-
-            int position = 0;
-            byte[] buffer = new byte[255];
-            var latestByte = port.ReadByte();
-            buffer[position] = (byte)latestByte;
-            
-            //Keep getting data until the latest byte is a zero byte
-            while (latestByte != 0)
-            {
-                latestByte  = port.ReadByte();
-                position++;
-                buffer[position] = (byte)latestByte;
-
-            }
+            byte[] buffer = new byte[port.BytesToRead];
+            port.Read(buffer, 0, buffer.Length);
             return buffer;
         }
 

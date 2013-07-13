@@ -15,13 +15,14 @@ namespace Agent.Contrib.Hardware.Bluetooth
         private SerialPort _port;
         private IChannel _channel;
 
-        public Connection(string Port, IChannel channel, int baudRate = 9600, Parity parity = Parity.None,
+        public Connection(string port, IChannel channel, int baudRate = 9600, Parity parity = Parity.None,
                           int dataBits = 8, StopBits stopBits = StopBits.One)
         {
-            _port = new SerialPort(Port, baudRate, parity, dataBits, stopBits);
+            _port = new SerialPort(port, baudRate, parity, dataBits, stopBits);
             _port.DataReceived += p_DataReceived;
             _channel = channel;
-            
+
+            if (_channel == null) _channel = new ByteChannel();
 
         }
 

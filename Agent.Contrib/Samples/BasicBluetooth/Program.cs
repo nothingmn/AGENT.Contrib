@@ -9,12 +9,22 @@ using System.Threading;
 
 namespace BasicBluetooth
 {
+    public class SimpleObject
+    {
+        public string AString { get; set; }
+        public int AnInt { get; set; }
+        public double ADouble { get; set; }
+        public float AFlot { get; set; }
+        public DateTime ADateTime { get; set; }
+    }
+
     public class Program
     {
-        static Bitmap _display;
+        private static Bitmap _display;
 
 
         private static Connection _connection;
+
         public static void Main()
         {
             // initialize display buffer
@@ -26,8 +36,8 @@ namespace BasicBluetooth
             _display.DrawText("Waiting for data", fontNinaB, Color.White, 10, 64);
             _display.Flush();
 
-            IChannel stringChannel = new StringChannel();
-            _connection = new Connection("COM1", stringChannel);
+            IChannel channel = new CSVChannel();
+            _connection = new Connection("COM1", channel);
             _connection.OnReceived += _connection_OnReceived;
             _connection.Open();
 
@@ -36,16 +46,32 @@ namespace BasicBluetooth
             Thread.Sleep(Timeout.Infinite);
         }
 
-        static void _connection_OnReceived(object Data, System.IO.Ports.SerialPort port, IChannel channel, DateTime Timestamp)
+        private static void _connection_OnReceived(object Data, System.IO.Ports.SerialPort port, IChannel channel,
+                                                   DateTime Timestamp)
         {
             //receive the data
-            var received = (Data as string);
             _display.Clear();
             Font fontNinaB = Resources.GetFont(Resources.FontResources.NinaB);
-            _display.DrawText(received, fontNinaB, Color.White, 10, 64);
+            var display = (string)Data;
+            try
+            {
+                var ary = (string[]) Data;
+                if (ary != null)
+                {
+                    display = "";
+                    for (int i = 0; i < ary.Length; i++)
+                    {
+                        display += ary[i] + ",";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+            _display.DrawText(display, fontNinaB, Color.White, 10, 64);
             _display.Flush();
             //echo it back
-            _connection.Write(received);
+            _connection.Write(Data);
         }
 
     }

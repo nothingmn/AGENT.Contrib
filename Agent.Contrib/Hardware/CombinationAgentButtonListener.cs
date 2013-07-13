@@ -3,14 +3,12 @@ using System.Collections;
 using Microsoft.SPOT.Hardware;
 
 /*
- * time to gather my thoughts:
- * 
- * types of button events to catch:
- * 1) single press of single button 
+ * some general thoughts on types of button events to catch:
+ * 1) single press of single button (handled by AgentButtonListener)
  * 2) double press of single button 
  * 3) triple press of single button 
  * 4) long single press of single button
- * 5) single press of a combination of buttons
+ * 5) single press of a combination of buttons (handled by CombinationAgentButtonListener)
  */
 
 namespace Agent.Contrib.Hardware

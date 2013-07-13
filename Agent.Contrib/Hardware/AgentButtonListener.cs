@@ -111,7 +111,7 @@ namespace Agent.Contrib.Hardware
 
 				m_WatchedButtons[b] = b;
 
-				var ip = new InterruptPort ((Cpu.Pin) b, false, Port.ResistorMode.Disabled, Port.InterruptMode.InterruptEdgeBoth);
+				var ip = new InterruptPort ((Cpu.Pin) b, false, Port.ResistorMode.PullUp, Port.InterruptMode.InterruptEdgeBoth);
 				m_InterruptPortIdToInterruptPortMap[ip.Id] = ip;
 				ip.OnInterrupt += m_InterruptHandler;
 			}

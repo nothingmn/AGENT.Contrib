@@ -50,7 +50,7 @@ namespace Agent.Contrib.Hardware
             {
                 foreach (Buttons b in buttons)
                 {
-                    InterruptPort s = new InterruptPort((Cpu.Pin)b, false, Port.ResistorMode.Disabled,
+                    InterruptPort s = new InterruptPort((Cpu.Pin)b, false, Port.ResistorMode.PullUp,
                                                         Port.InterruptMode.InterruptEdgeBoth);
                     buttonPorts.Add(s);
                     s.OnInterrupt += s_OnInterrupt;

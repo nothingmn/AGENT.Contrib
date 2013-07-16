@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent.Menu", "Agent.Contrib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Countdown.Viber.App", "Agent.Contrib\Samples\Countdown.Viber.App\Countdown.Viber.App.csproj", "{1716ED7E-9C46-42C0-A43F-014B3088C628}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMemoryGame", "Agent.Contrib\Samples\SimpleMemoryGame\SimpleMemoryGame.csproj", "{681EEC5D-E179-4EEF-AC4E-A0B6AF0E837D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -136,8 +138,17 @@ Global
 		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{681EEC5D-E179-4EEF-AC4E-A0B6AF0E837D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{681EEC5D-E179-4EEF-AC4E-A0B6AF0E837D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{681EEC5D-E179-4EEF-AC4E-A0B6AF0E837D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{681EEC5D-E179-4EEF-AC4E-A0B6AF0E837D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{681EEC5D-E179-4EEF-AC4E-A0B6AF0E837D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{681EEC5D-E179-4EEF-AC4E-A0B6AF0E837D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

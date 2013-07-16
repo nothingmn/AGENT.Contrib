@@ -51,6 +51,8 @@
     <Compile Include="Hardware\Accelerometer\RandomAccelerometer.cs" />
     <Compile Include="Hardware\Accelerometer\Reading.cs" />
     <Compile Include="Hardware\Bluetooth\Connection.cs" />
+    <Compile Include="Hardware\ButtonsSequence.cs" />
+    <Compile Include="Hardware\ButtonsSequenceDetector.cs" />
     <Compile Include="Hardware\MultiButtonHelper.cs" />
     <Compile Include="Hardware\Viberate\DebugViberate.cs" />
     <Compile Include="Hardware\Viberate\ViberateProvider.cs" />

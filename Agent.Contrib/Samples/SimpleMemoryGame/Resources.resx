@@ -124,4 +124,7 @@
   <data name="small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\small.tinyfnt;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="Victory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Victory.bmp;System.Byte[], mscorlib, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
 </root>

@@ -4,20 +4,17 @@ using Microsoft.SPOT;
 
 namespace Agent.Contrib.Communication.Channels
 {
-    public class StringChannel : IChannel
+    public class ByteArrayChannel : IChannel
     {
-        public StringChannel()
-        {
-        }
 
         public object ConvertTo(byte[] input)
         {
-            return new string(System.Text.Encoding.UTF8.GetChars(input));
+            return (object)input;
         }
 
         public byte[] ConvertFrom(object data)
         {
-            return System.Text.Encoding.UTF8.GetBytes((string) data);
+            return (byte[])data;
         }
     }
 }

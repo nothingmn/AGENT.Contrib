@@ -32,7 +32,7 @@
   <ItemGroup>
     <Compile Include="AGENT.cs" />
     <Compile Include="Communication\Channels\BaseChannel.cs" />
-    <Compile Include="Communication\Channels\ByteChannel.cs" />
+    <Compile Include="Communication\Channels\ByteArrayChannel.cs" />
     <Compile Include="Communication\Channels\CSVChannel.cs" />
     <Compile Include="Communication\Channels\StringChannel.cs" />
     <Compile Include="Communication\Channels\IChannel.cs" />
@@ -50,6 +50,7 @@
     <Compile Include="Hardware\Accelerometer\RandomAccelerometer.cs" />
     <Compile Include="Hardware\Accelerometer\Reading.cs" />
     <Compile Include="Hardware\Bluetooth\Connection.cs" />
+    <Compile Include="Hardware\Bluetooth\IConnection.cs" />
     <Compile Include="Hardware\MultiButtonHelper.cs" />
     <Compile Include="Hardware\Viberate\DebugViberate.cs" />
     <Compile Include="Hardware\Viberate\ViberateProvider.cs" />

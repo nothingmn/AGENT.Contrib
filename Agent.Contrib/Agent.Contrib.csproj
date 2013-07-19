@@ -31,7 +31,6 @@
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
     <Compile Include="AGENT.cs" />
-    <Compile Include="Communication\Channels\BaseChannel.cs" />
     <Compile Include="Communication\Channels\ByteArrayChannel.cs" />
     <Compile Include="Communication\Channels\CSVChannel.cs" />
     <Compile Include="Communication\Channels\StringChannel.cs" />

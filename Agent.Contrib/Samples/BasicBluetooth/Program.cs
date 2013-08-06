@@ -23,7 +23,7 @@ namespace BasicBluetooth
         private static Bitmap _display;
 
 
-        private static Connection _connection;
+        private static IConnection _connection;
 
         public static void Main()
         {
@@ -46,8 +46,7 @@ namespace BasicBluetooth
             Thread.Sleep(Timeout.Infinite);
         }
 
-        private static void _connection_OnReceived(object Data, System.IO.Ports.SerialPort port, IChannel channel,
-                                                   DateTime Timestamp)
+        private static void _connection_OnReceived(object Data, System.IO.Ports.SerialPort port, IChannel channel, DateTime Timestamp)
         {
             //receive the data
             _display.Clear();

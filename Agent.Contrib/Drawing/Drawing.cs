@@ -189,7 +189,7 @@ namespace Agent.Contrib.Drawing
                     tl.X = (tl.X > points[i].X) ? points[i].X : tl.X;
                     tl.Y = (tl.Y > points[i].Y) ? points[i].Y : tl.Y;
                     br.X = (br.X < points[i].X) ? points[i].X : br.X;
-                    br.Y = (br.Y < points[i].Y) ? points[i].Y : br.X;
+                    br.Y = (br.Y < points[i].Y) ? points[i].Y : br.Y;
                 }
 
                 // adjust binding box to fit thick border. Foê some reason SPOT.Bitmap double the border width (at least on emulator)

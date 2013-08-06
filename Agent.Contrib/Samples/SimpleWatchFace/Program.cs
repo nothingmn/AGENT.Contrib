@@ -1,4 +1,4 @@
-﻿using Agent.Contrib.Face;
+﻿using AGENT.Contrib.Face;
 
 namespace SimpleWatchFace
 {

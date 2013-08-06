@@ -1,7 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.GeoLocation
+namespace AGENT.Contrib.GeoLocation
 {
     public interface IPosition
     {

@@ -1,8 +1,8 @@
 ﻿using System;
-using Agent.Contrib.Face;
-using Agent.Contrib.Hardware;
-using Agent.Contrib.Notifications;
-using Agent.Contrib.Settings;
+using AGENT.Contrib.Face;
+using AGENT.Contrib.Hardware;
+using AGENT.Contrib.Notifications;
+using AGENT.Contrib.Settings;
 using Microsoft.SPOT;
 
 namespace MonthWatchFace

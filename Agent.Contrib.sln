@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent.Contrib", "Agent.Contrib\Agent.Contrib.csproj", "{C13C6D79-545D-40EB-9F3C-8746C99C259C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGENT.Contrib", "Agent.Contrib\AGENT.Contrib.csproj", "{C13C6D79-545D-40EB-9F3C-8746C99C259C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWatchFace", "Agent.Contrib\Samples\SimpleWatchFace\SimpleWatchFace.csproj", "{9E317A55-A986-450D-971B-2D6C7906238A}"
 EndProject
@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonthWatchFace", "Agent.Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiButtons", "Agent.Contrib\Samples\MultiButtons\MultiButtons.csproj", "{661A80CB-C181-4D70-BEB5-C2DF34021F29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent.SimpleCalculator", "Agent.Contrib\Samples\Agent.SimpleCalculator\Agent.SimpleCalculator.csproj", "{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGENT.SimpleCalculator", "Agent.Contrib\Samples\Agent.SimpleCalculator\AGENT.SimpleCalculator.csproj", "{C38B8D0D-F92D-47D3-8D8F-7CD59C86DCE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithButtons", "Agent.Contrib\Samples\FunWithButtons\FunWithButtons.csproj", "{CF3CD7A3-1F03-423B-AC49-4634948AF6FB}"
 EndProject
@@ -32,13 +32,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyFillDemo", "Agent.Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicBluetooth", "Agent.Contrib\Samples\BasicBluetooth\BasicBluetooth.csproj", "{66C77DB4-2EB8-4D2D-AB29-51972DA80C26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent.Menu", "Agent.Contrib\Samples\Agent.Menu\Agent.Menu.csproj", "{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGENT.Menu", "Agent.Contrib\Samples\Agent.Menu\AGENT.Menu.csproj", "{287C7DA6-EA6B-4FF5-AD29-E620D13F5066}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Countdown.Viber.App", "Agent.Contrib\Samples\Countdown.Viber.App\Countdown.Viber.App.csproj", "{1716ED7E-9C46-42C0-A43F-014B3088C628}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{B6E4C0AB-B39C-4383-BB6B-E371BD476FAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GifCompressor", "Tools\GifCompressor\GifCompressor.csproj", "{02DC17D0-39F6-449D-8FAC-0FEF17540666}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1bitter", "1bitter", "{B0591767-E80F-4396-8D73-F5336F786CBD}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\1bitter\1bitter.exe = Tools\1bitter\1bitter.exe
+		Tools\1bitter\README.MD = Tools\1bitter\README.MD
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -150,5 +156,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{02DC17D0-39F6-449D-8FAC-0FEF17540666} = {B6E4C0AB-B39C-4383-BB6B-E371BD476FAD}
+		{B0591767-E80F-4396-8D73-F5336F786CBD} = {B6E4C0AB-B39C-4383-BB6B-E371BD476FAD}
 	EndGlobalSection
 EndGlobal

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Reflection
+namespace AGENT.Contrib.Reflection
 {
     public class Utilities
     {

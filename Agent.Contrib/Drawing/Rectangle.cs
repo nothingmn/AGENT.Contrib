@@ -1,7 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Drawing
+namespace AGENT.Contrib.Drawing
 {
     /// <summary>
     /// Stores a set of four integers that represent the location and size of a rectangle

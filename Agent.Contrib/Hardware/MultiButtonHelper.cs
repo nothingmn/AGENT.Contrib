@@ -4,7 +4,7 @@ using System.Threading;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 
-namespace Agent.Contrib.Hardware
+namespace AGENT.Contrib.Hardware
 {
     public class MultiButtonHelper
     {

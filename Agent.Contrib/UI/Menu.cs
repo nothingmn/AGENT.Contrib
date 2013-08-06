@@ -3,9 +3,9 @@ using System.Collections;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using Microsoft.SPOT.Presentation.Media;
-using Agent.Contrib.Hardware;
+using AGENT.Contrib.Hardware;
 
-namespace Agent.Contrib.UI
+namespace AGENT.Contrib.UI
 {
     public class Menu
     {

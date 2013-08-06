@@ -1,7 +1,7 @@
 ﻿using System;
-using Agent.Contrib;
-using Agent.Contrib.Face;
-using Agent.Contrib.Hardware;
+using AGENT.Contrib;
+using AGENT.Contrib.Face;
+using AGENT.Contrib.Hardware;
 using Microsoft.SPOT;
 
 namespace BatterySizesWatchFace
@@ -33,7 +33,7 @@ namespace BatterySizesWatchFace
                 }
                 else if (button == Buttons.MiddleRight)
                 {
-                    (face as BatterySizesFace).width = AGENT.Size/2;
+                    (face as BatterySizesFace).width = AGENT.Contrib.Device.Size/2;
                 }
                 else
                 {

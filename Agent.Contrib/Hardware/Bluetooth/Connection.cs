@@ -1,11 +1,11 @@
 using System;
 using System.IO.Ports;
 using System.Threading;
-using Agent.Contrib.Communication.Channels;
-using Agent.Contrib.Util;
+using AGENT.Contrib.Communication.Channels;
+using AGENT.Contrib.Util;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Hardware.Bluetooth
+namespace AGENT.Contrib.Hardware.Bluetooth
 {
 
     public delegate void Received(object data, SerialPort port, IChannel channel, DateTime timestamp);

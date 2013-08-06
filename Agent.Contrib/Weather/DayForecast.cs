@@ -1,7 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Weather
+namespace AGENT.Contrib.Weather
 {
     public class DayForecast : IForecast
     {

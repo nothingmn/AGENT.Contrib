@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using Agent.Contrib.Hardware;
+using AGENT.Contrib.Hardware;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using Microsoft.SPOT.Presentation;

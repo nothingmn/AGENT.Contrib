@@ -3,7 +3,7 @@ using System.Collections;
 using System.Threading;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Notifications
+namespace AGENT.Contrib.Notifications
 {
     public class SimpleNotifications : IProvideNotifications
     {

@@ -1,6 +1,6 @@
 ﻿using System;
-using Agent.Contrib.Face;
-using Agent.Contrib.Hardware;
+using AGENT.Contrib.Face;
+using AGENT.Contrib.Hardware;
 using Microsoft.SPOT;
 
 namespace SimpleWatchFaceWithButtons

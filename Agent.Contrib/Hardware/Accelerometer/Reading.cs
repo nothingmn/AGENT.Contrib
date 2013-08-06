@@ -1,7 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Hardware.Accelerometer
+namespace AGENT.Contrib.Hardware.Accelerometer
 {
     public class Reading
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Threading;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Weather
+namespace AGENT.Contrib.Weather
 {
 
     public delegate void WeatherUpdated(IWeatherForecast _weatherForecastProvider);

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Drawing
+namespace AGENT.Contrib.Drawing
 {
     /// <summary>
     /// Represents an ordered pair of integer x- and y-coordinates that defines a point in a two-dimensional plane.

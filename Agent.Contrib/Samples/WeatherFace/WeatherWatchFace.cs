@@ -1,8 +1,8 @@
 using System;
-using Agent.Contrib;
-using Agent.Contrib.Drawing;
-using Agent.Contrib.Face;
-using Agent.Contrib.Weather;
+using AGENT.Contrib;
+using AGENT.Contrib.Drawing;
+using AGENT.Contrib.Face;
+using AGENT.Contrib.Weather;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -10,7 +10,7 @@ namespace WeatherFace
 {
     public class WeatherWatchFace : IFace
     {
-        public Agent.Contrib.Settings.ISettings Settings { get; set; }
+        public AGENT.Contrib.Settings.ISettings Settings { get; set; }
 
         public IWeatherForecast CurrentConditions { get; set; }
 
@@ -50,7 +50,7 @@ namespace WeatherFace
         {
             
             if (_screen == null) _screen = screen;
-            _screen.DrawLine(Color.White, 2, 0, AGENT.Size/2, AGENT.Size, AGENT.Size/2);
+            _screen.DrawLine(Color.White, 2, 0, AGENT.Contrib.Device.Size / 2, AGENT.Contrib.Device.Size, AGENT.Contrib.Device.Size / 2);
 
             DateTime now = DateTime.Now;
             int counter = (int) now.DayOfWeek;
@@ -70,9 +70,9 @@ namespace WeatherFace
                 left += width + buffer;
             }
             string display = CurrentConditions.CurrentForecast.Temperature.ToString();
-            int forecastLeft = AGENT.Size - drawing.MeasureString(display, bigfont);
-            _screen.DrawText(display, bigfont, Color.White, forecastLeft, (AGENT.Size/2) + 2);
-            _screen.DrawText(CurrentConditions.CurrentForecast.TimeStamp.ToString(), smallFont, Color.White, 3, (AGENT.Size / 2) - smallFont.Height - 1);
+            int forecastLeft = AGENT.Contrib.Device.Size - drawing.MeasureString(display, bigfont);
+            _screen.DrawText(display, bigfont, Color.White, forecastLeft, (AGENT.Contrib.Device.Size/2) + 2);
+            _screen.DrawText(CurrentConditions.CurrentForecast.TimeStamp.ToString(), smallFont, Color.White, 3, (AGENT.Contrib.Device.Size / 2) - smallFont.Height - 1);
 
         }
 

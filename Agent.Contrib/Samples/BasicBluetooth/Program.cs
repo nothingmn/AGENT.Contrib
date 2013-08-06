@@ -1,6 +1,6 @@
 ﻿using System;
-using Agent.Contrib.Communication.Channels;
-using Agent.Contrib.Hardware.Bluetooth;
+using AGENT.Contrib.Communication.Channels;
+using AGENT.Contrib.Hardware.Bluetooth;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using Microsoft.SPOT.Presentation;

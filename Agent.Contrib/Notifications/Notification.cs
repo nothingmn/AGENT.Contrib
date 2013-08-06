@@ -1,7 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Notifications
+namespace AGENT.Contrib.Notifications
 {
     public delegate void NotificationReceived(INotification notification);
 

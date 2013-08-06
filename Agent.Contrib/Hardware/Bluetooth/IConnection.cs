@@ -1,7 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Hardware.Bluetooth
+namespace AGENT.Contrib.Hardware.Bluetooth
 {
     public interface IConnection
     {

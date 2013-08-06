@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.GeoLocation
+namespace AGENT.Contrib.GeoLocation
 {
     /// <summary>
     /// http://dev.w3.org/geo/api/spec-source.html#position

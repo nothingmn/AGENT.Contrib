@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using System.Globalization;
-using Agent.Contrib;
-using Agent.Contrib.Drawing;
-using Agent.Contrib.Face;
-using Agent.Contrib.Notifications;
-using Agent.Contrib.Settings;
+using AGENT.Contrib;
+using AGENT.Contrib.Drawing;
+using AGENT.Contrib.Face;
+using AGENT.Contrib.Notifications;
+using AGENT.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -24,7 +24,7 @@ namespace MonthWatchFace
             int col = (int) startDate.DayOfWeek;
             int row = 0;
             TimeSpan diff = endDate - startDate;
-            int rowStart = AGENT.Size/2 + 7;
+            int rowStart = AGENT.Contrib.Device.Size/2 + 7;
             int colStart = 6;
             int colPos = 0;
             int rowPos = 0;
@@ -101,8 +101,8 @@ namespace MonthWatchFace
         public override void Render(Bitmap screen)
         {
             if (base._screen == null) _screen = screen;
-            screen.DrawLine(Color.White, 2, 0, AGENT.Size/2 - 10, AGENT.Size, AGENT.Size/2 - 10);
-            screen.DrawImage(0, AGENT.Size - monthGrid.Height, monthGrid, 0, 0, monthGrid.Width, monthGrid.Height);
+            screen.DrawLine(Color.White, 2, 0, AGENT.Contrib.Device.Size/2 - 10, AGENT.Contrib.Device.Size, AGENT.Contrib.Device.Size/2 - 10);
+            screen.DrawImage(0, AGENT.Contrib.Device.Size - monthGrid.Height, monthGrid, 0, 0, monthGrid.Width, monthGrid.Height);
             foreach (Day day in days)
             {
                 if (day.Timestamp.Date == Settings.Now.Date)

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Hardware
+namespace AGENT.Contrib.Hardware
 {
 
     public enum ButtonDirection

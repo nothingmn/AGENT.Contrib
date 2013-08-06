@@ -1,8 +1,8 @@
 using System;
-using Agent.Contrib.Settings;
+using AGENT.Contrib.Settings;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Face
+namespace AGENT.Contrib.Face
 {
     public interface IWatchFace
     {

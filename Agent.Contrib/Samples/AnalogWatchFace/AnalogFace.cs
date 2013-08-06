@@ -1,11 +1,11 @@
 using System;
 using System.Globalization;
-using Agent.Contrib;
-using Agent.Contrib.Drawing;
-using Agent.Contrib.Face;
-using Agent.Contrib.Hardware;
-using Agent.Contrib.Notifications;
-using Agent.Contrib.Settings;
+using AGENT.Contrib;
+using AGENT.Contrib.Drawing;
+using AGENT.Contrib.Face;
+using AGENT.Contrib.Hardware;
+using AGENT.Contrib.Notifications;
+using AGENT.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -36,18 +36,18 @@ namespace AnalogWatchFace
 
             var text = "AGENT";
             Point textLocation = new Point(
-                AGENT.Center.X - (drawing.MeasureString(text, smallFont) / 2), AGENT.Center.Y - 25);
+                AGENT.Contrib.Device.Center.X - (drawing.MeasureString(text, smallFont) / 2), AGENT.Contrib.Device.Center.Y - 25);
             screen.DrawText(text, smallFont, Color.White, textLocation.X, textLocation.Y);
 
             var date = Settings.Now.ToString(CultureInfo.CurrentUICulture.DateTimeFormat.MonthDayPattern);
             ; //time.MonthNameShort + " " + time.Day;
 
             Point dateLocation = new Point(
-                AGENT.Center.X - (drawing.MeasureString(date, smallFont) / 2), AGENT.Center.Y + 20);
+                AGENT.Contrib.Device.Center.X - (drawing.MeasureString(date, smallFont) / 2), AGENT.Contrib.Device.Center.Y + 20);
             screen.DrawText(date, smallFont, Color.White, dateLocation.X, dateLocation.Y);
 
             //draw our hands
-            drawing.PaintSkinnyHands(screen, Settings.Now, AGENT.Center);
+            drawing.PaintSkinnyHands(screen, Settings.Now, AGENT.Contrib.Device.Center);
 
 
             

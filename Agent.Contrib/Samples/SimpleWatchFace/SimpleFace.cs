@@ -1,6 +1,6 @@
 using System.Globalization;
-using Agent.Contrib.Face;
-using Agent.Contrib.Settings;
+using AGENT.Contrib.Face;
+using AGENT.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 

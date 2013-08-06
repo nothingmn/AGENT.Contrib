@@ -1,5 +1,5 @@
 ﻿using System;
-using Agent.Contrib.Hardware.Accelerometer;
+using AGENT.Contrib.Hardware.Accelerometer;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using Microsoft.SPOT.Presentation;

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Microsoft.SPOT.Hardware;
 
-namespace Agent.Contrib.Hardware
+namespace AGENT.Contrib.Hardware
 {
 	public delegate void AgentButtonStateChangeEventHandler (AgentButton button, InterruptPort port, AgentButtonState state, DateTime time);
 

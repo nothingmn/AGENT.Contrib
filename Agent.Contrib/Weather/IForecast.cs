@@ -1,8 +1,8 @@
 using System;
-using Agent.Contrib.GeoLocation;
+using AGENT.Contrib.GeoLocation;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Weather
+namespace AGENT.Contrib.Weather
 {
     public interface IForecast
     {

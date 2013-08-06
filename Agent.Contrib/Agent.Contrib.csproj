@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <AssemblyName>Agent.Contrib</AssemblyName>
+    <AssemblyName>AGENT.Contrib</AssemblyName>
     <OutputType>Library</OutputType>
-    <RootNamespace>Agent.Contrib</RootNamespace>
+    <RootNamespace>AGENT.Contrib</RootNamespace>
     <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -30,7 +30,7 @@
   </PropertyGroup>
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
-    <Compile Include="AGENT.cs" />
+    <Compile Include="Device.cs" />
     <Compile Include="Communication\Channels\ByteArrayChannel.cs" />
     <Compile Include="Communication\Channels\CSVChannel.cs" />
     <Compile Include="Communication\Channels\StringChannel.cs" />
@@ -40,6 +40,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ContribResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Drawing\CompressedBitmapReader.cs" />
     <Compile Include="Drawing\HAlign.cs" />
     <Compile Include="Drawing\PolyFill.cs" />
     <Compile Include="Drawing\Rectangle.cs" />

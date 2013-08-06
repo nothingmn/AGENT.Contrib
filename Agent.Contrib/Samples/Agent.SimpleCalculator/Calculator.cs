@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
-using Agent.Contrib.Drawing;
-using Agent.Contrib.Hardware;
-using Agent.Contrib.Util;
-using Agent.SimpleCalculator;
+using AGENT.Contrib.Drawing;
+using AGENT.Contrib.Hardware;
+using AGENT.Contrib.Util;
+using AGENT.SimpleCalculator;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -79,7 +79,7 @@ namespace SimpleCalculator
         {
             if (direction == ButtonDirection.Up)
             {
-                if (button == Agent.Contrib.Hardware.Buttons.TopRight)
+                if (button == AGENT.Contrib.Hardware.Buttons.TopRight)
                 {
                     Debug.Print("Button press up");
                     for (int i = 0; i < Buttons.Count - 1; i++)
@@ -96,7 +96,7 @@ namespace SimpleCalculator
                     }
                     Render(Screen);
                 }
-                if (button == Agent.Contrib.Hardware.Buttons.BottomRight)
+                if (button == AGENT.Contrib.Hardware.Buttons.BottomRight)
                 {
                     Debug.Print("Button press down");
                     for (int i = Buttons.Count - 1; i >= 0; i--)
@@ -113,7 +113,7 @@ namespace SimpleCalculator
                     }
                     Render(Screen);
                 }
-                if (button == Agent.Contrib.Hardware.Buttons.MiddleRight)
+                if (button == AGENT.Contrib.Hardware.Buttons.MiddleRight)
                 {
                     Debug.Print("Button press select:" + SelectedButton.Text);
                     var text = SelectedButton.Text;

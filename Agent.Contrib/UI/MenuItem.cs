@@ -2,7 +2,7 @@ using System;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
-namespace Agent.Contrib.UI
+namespace AGENT.Contrib.UI
 {
     public class MenuItem
     {

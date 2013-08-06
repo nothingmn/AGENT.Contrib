@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading;
-using Agent.Contrib.Hardware;
-using Agent.Contrib.UI;
+using AGENT.Contrib.Hardware;
+using AGENT.Contrib.UI;
+using AGENT.Menu;
 using Microsoft.SPOT;
 
 namespace Agent.MenuApp
@@ -18,7 +19,7 @@ namespace Agent.MenuApp
             //get a sample image for the menu items
             var arrow = new Bitmap(Resources.GetBytes(Resources.BinaryResources.right_arrow), Bitmap.BitmapImageType.Gif);
             //new up our menu
-            var menu = new Agent.Contrib.UI.Menu(font);
+            var menu = new AGENT.Contrib.UI.Menu(font);
 
             //setup our menu items
             menu.Items.Add(new MenuItem() { Title = "Hello", CommandName = "Hello", CommandArg = "World", Image = arrow });
@@ -46,7 +47,7 @@ namespace Agent.MenuApp
             System.Threading.Thread.Sleep(Timeout.Infinite);
         }
 
-        static void menu_OnMenuItemClicked(Agent.Contrib.UI.Menu menu, MenuItem menuItem, DateTime time)
+        static void menu_OnMenuItemClicked(AGENT.Contrib.UI.Menu menu, MenuItem menuItem, DateTime time)
         {
             Debug.Print(menuItem.Title + " was clicked at " + time.ToString());
 

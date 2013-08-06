@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.GeoLocation
+namespace AGENT.Contrib.GeoLocation
 {
     public class SimplePosition : IPosition
     {

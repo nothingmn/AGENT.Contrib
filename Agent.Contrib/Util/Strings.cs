@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Util
+namespace AGENT.Contrib.Util
 {
     public static class Strings
     {

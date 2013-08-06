@@ -1,17 +1,17 @@
 using System;
-using Agent.Contrib.Notifications;
-using Agent.Contrib.Settings;
+using AGENT.Contrib.Notifications;
+using AGENT.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
-namespace Agent.Contrib.Face
+namespace AGENT.Contrib.Face
 {
     public abstract class FaceWithTrayBase : IFace
     {
         protected Font smallFont = ContribResources.GetFont(ContribResources.FontResources.small);
         public Settings.ISettings Settings { get; set; }
         protected IProvideNotifications _notificationProvider;
-        protected Agent.Contrib.Drawing.Drawing drawing = new Agent.Contrib.Drawing.Drawing();
+        protected Drawing.Drawing drawing = new Drawing.Drawing();
         public FaceWithTrayBase(IProvideNotifications notificationProvider, ISettings settings)
         {
             Settings = settings;

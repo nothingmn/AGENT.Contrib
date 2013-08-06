@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Weather
+namespace AGENT.Contrib.Weather
 {
     public interface IWeatherForecast
     {

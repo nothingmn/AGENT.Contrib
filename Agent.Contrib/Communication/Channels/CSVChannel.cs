@@ -1,8 +1,8 @@
 using System.Text;
-using Agent.Contrib.Util;
+using AGENT.Contrib.Util;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Communication.Channels
+namespace AGENT.Contrib.Communication.Channels
 {
     public class CSVChannel : StringChannel, IChannel
     {

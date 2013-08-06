@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Settings
+namespace AGENT.Contrib.Settings
 {
     public class SettingsProvider
     {

@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Util
+namespace AGENT.Contrib.Util
 {
     public delegate void CountdownTimerElapsed(CountdownTimer timer, DateTime Timestamp);
 

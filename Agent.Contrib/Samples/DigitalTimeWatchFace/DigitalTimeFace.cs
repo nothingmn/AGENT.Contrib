@@ -1,9 +1,9 @@
 using System;
-using Agent.Contrib;
-using Agent.Contrib.Drawing;
-using Agent.Contrib.Face;
-using Agent.Contrib.Notifications;
-using Agent.Contrib.Settings;
+using AGENT.Contrib;
+using AGENT.Contrib.Drawing;
+using AGENT.Contrib.Face;
+using AGENT.Contrib.Notifications;
+using AGENT.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -42,10 +42,10 @@ namespace DigitalTimeWatchFace
             if (minute.Length == 1) minute = "0" + minute;
 
             display = hour + ":" + minute;
-            screen.DrawLine(Color.White, 2, 0, AGENT.Size/2, AGENT.Size, AGENT.Size/2);
+            screen.DrawLine(Color.White, 2, 0, AGENT.Contrib.Device.Size/2, AGENT.Contrib.Device.Size, AGENT.Contrib.Device.Size/2);
 
-            int left = AGENT.Size - base.drawing.MeasureString(display, bigfont);
-            screen.DrawText(display, bigfont, Color.White, left, (AGENT.Size/2) + 2);
+            int left = AGENT.Contrib.Device.Size - base.drawing.MeasureString(display, bigfont);
+            screen.DrawText(display, bigfont, Color.White, left, (AGENT.Contrib.Device.Size/2) + 2);
 
             string dow = System.Globalization.DateTimeFormatInfo.CurrentInfo.DayNames[(int) now.DayOfWeek];
             screen.DrawText(dow.ToString(), font, Color.White, 5, 15);

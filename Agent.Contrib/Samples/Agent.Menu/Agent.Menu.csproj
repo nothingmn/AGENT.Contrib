@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <AssemblyName>Agent.Menu</AssemblyName>
+    <AssemblyName>AGENT.Menu</AssemblyName>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Agent.Menu</RootNamespace>
+    <RootNamespace>AGENT.Menu</RootNamespace>
     <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -55,12 +55,12 @@
     <None Include="Resources\NinaB.tinyfnt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Agent.Contrib.csproj">
-      <Project>{C13C6D79-545D-40EB-9F3C-8746C99C259C}</Project>
-      <Name>Agent.Contrib</Name>
-    </ProjectReference>
+    <None Include="Resources\right-arrow.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\right-arrow.gif" />
+    <ProjectReference Include="..\..\AGENT.Contrib.csproj">
+      <Project>{C13C6D79-545D-40EB-9F3C-8746C99C259C}</Project>
+      <Name>AGENT.Contrib</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

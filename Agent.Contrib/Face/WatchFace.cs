@@ -1,10 +1,10 @@
 using System;
 using System.Threading;
-using Agent.Contrib.Settings;
+using AGENT.Contrib.Settings;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
-namespace Agent.Contrib.Face
+namespace AGENT.Contrib.Face
 {
     public class WatchFace : IWatchFace
     {

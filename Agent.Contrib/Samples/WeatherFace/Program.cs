@@ -1,6 +1,6 @@
 ﻿using System;
-using Agent.Contrib.Face;
-using Agent.Contrib.Weather;
+using AGENT.Contrib.Face;
+using AGENT.Contrib.Weather;
 using Microsoft.SPOT;
 
 namespace WeatherFace

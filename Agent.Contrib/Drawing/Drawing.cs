@@ -1,10 +1,10 @@
 using System;
-using Agent.Contrib.Hardware;
-using Agent.Contrib.Notifications;
+using AGENT.Contrib.Hardware;
+using AGENT.Contrib.Notifications;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
-namespace Agent.Contrib.Drawing
+namespace AGENT.Contrib.Drawing
 {
     public class Drawing
     {
@@ -343,7 +343,7 @@ namespace Agent.Contrib.Drawing
         public Point FindCenter(string text, Font font)
         {
             var size = MeasureString(text, font);
-            var center = AGENT.Center;
+            var center = AGENT.Contrib.Device.Center;
             var centerText = size/2 - 2;
             var X = center.X - centerText;
             var Y = center.Y - (font.Height/2);
@@ -372,7 +372,7 @@ namespace Agent.Contrib.Drawing
         public void DrawImageCentered(Bitmap screen, byte[] imageData, Bitmap.BitmapImageType imageType)
         {
             var img = new Bitmap(imageData, imageType);
-            var p = new Point(AGENT.Center.X - (img.Width/2), AGENT.Center.Y - (img.Height/2));
+            var p = new Point(AGENT.Contrib.Device.Center.X - (img.Width / 2), AGENT.Contrib.Device.Center.Y - (img.Height / 2));
             DrawImageAtPoint(screen, imageData, imageType, p);
         }
 
@@ -404,7 +404,7 @@ namespace Agent.Contrib.Drawing
         public Point MinuteHandLocation(int minute, int second)
         {
             int min = (int) ((6*minute) + (0.1*second)); // Jump to Minute and add offset for 6 degrees over 60 seconds'
-            return PointOnCircle(TRANSLATE_RADIUS_MINUTES, min + (-90), AGENT.Center);
+            return PointOnCircle(TRANSLATE_RADIUS_MINUTES, min + (-90), AGENT.Contrib.Device.Center);
         }
 
 
@@ -418,7 +418,7 @@ namespace Agent.Contrib.Drawing
         {
             int hr = (int) ((30*(hour%12)) + (0.5*minute));
             // Jump to Hour and add offset for 30 degrees over 60 minutes
-            return PointOnCircle(TRANSLATE_RADIUS_HOURS, hr + (-90), AGENT.Center);
+            return PointOnCircle(TRANSLATE_RADIUS_HOURS, hr + (-90), AGENT.Contrib.Device.Center);
         }
 
         /// <summary>
@@ -429,7 +429,7 @@ namespace Agent.Contrib.Drawing
         public Point SecondHandLocation(int second)
         {
             int sec = 6*second;
-            return PointOnCircle(TRANSLATE_RADIUS_SECONDS, sec + (-90), AGENT.Center);
+            return PointOnCircle(TRANSLATE_RADIUS_SECONDS, sec + (-90), AGENT.Contrib.Device.Center);
         }
 
         /// <summary>
@@ -442,7 +442,7 @@ namespace Agent.Contrib.Drawing
         /// <param name="second"></param>
         public void PaintMinuteHand(Bitmap screen, Color color, int thickness, int minute, int second)
         {
-            PaintLine(screen, color, thickness, AGENT.Center, MinuteHandLocation(minute, second));
+            PaintLine(screen, color, thickness, AGENT.Contrib.Device.Center, MinuteHandLocation(minute, second));
         }
 
         /// <summary>
@@ -455,7 +455,7 @@ namespace Agent.Contrib.Drawing
         public void PaintSecondHand(Bitmap screen, Color color, int thickness, int second)
         {
 
-            PaintLine(screen, color, thickness, AGENT.Center, SecondHandLocation(second));
+            PaintLine(screen, color, thickness, AGENT.Contrib.Device.Center, SecondHandLocation(second));
         }
 
         /// <summary>
@@ -468,7 +468,7 @@ namespace Agent.Contrib.Drawing
         /// <param name="minute"></param>
         public void PaintHourHand(Bitmap screen, Color color, int thickness, int hour, int minute)
         {
-            PaintLine(screen, color, thickness, AGENT.Center, HourHandLocation(hour, minute));
+            PaintLine(screen, color, thickness, AGENT.Contrib.Device.Center, HourHandLocation(hour, minute));
 
         }
 
@@ -512,9 +512,9 @@ namespace Agent.Contrib.Drawing
             if (minuteWidth > 0) PaintMinuteHand(screen, foreColor, minuteWidth, minute, second);
             if (secondWidth > 0) PaintSecondHand(screen, foreColor, secondWidth, second);
 
-            screen.DrawEllipse(foreColor, 1, AGENT.Center.X, AGENT.Center.Y, 3, 3, Color.White, 0, 0, Color.White, 0, 0,
+            screen.DrawEllipse(foreColor, 1, AGENT.Contrib.Device.Center.X, AGENT.Contrib.Device.Center.Y, 3, 3, Color.White, 0, 0, Color.White, 0, 0,
                                255);
-            screen.DrawEllipse(foreColor, 1, AGENT.Center.X, AGENT.Center.Y, 2, 2, Color.Black, 0, 0, Color.White, 0, 0,
+            screen.DrawEllipse(foreColor, 1, AGENT.Contrib.Device.Center.X, AGENT.Contrib.Device.Center.Y, 2, 2, Color.Black, 0, 0, Color.White, 0, 0,
                                255);
 
         }

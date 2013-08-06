@@ -11,7 +11,7 @@ using Microsoft.SPOT.Hardware;
  * 5) single press of a combination of buttons (handled by CombinationAgentButtonListener)
  */
 
-namespace Agent.Contrib.Hardware
+namespace AGENT.Contrib.Hardware
 {
 	public delegate void CombinationAgentButtonStateChangeEventHandler (Hashtable previousButtons, Hashtable currentButtons, AgentButton changingButton, AgentButtonState changingButtonState, DateTime time);
 	

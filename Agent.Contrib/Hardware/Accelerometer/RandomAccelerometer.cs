@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Hardware.Accelerometer
+namespace AGENT.Contrib.Hardware.Accelerometer
 {
     public class RandomAccelerometer : IAccelerometer
     {

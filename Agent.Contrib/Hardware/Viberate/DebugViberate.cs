@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Hardware.Viberate
+namespace AGENT.Contrib.Hardware.Viberate
 {
     public class DebugViberate : IViberate
     {

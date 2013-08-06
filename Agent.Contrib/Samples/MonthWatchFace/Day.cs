@@ -1,5 +1,5 @@
 using System;
-using Agent.Contrib.Drawing;
+using AGENT.Contrib.Drawing;
 using Microsoft.SPOT;
 
 namespace MonthWatchFace

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Notifications
+namespace AGENT.Contrib.Notifications
 {
     public interface IProvideNotifications
     {

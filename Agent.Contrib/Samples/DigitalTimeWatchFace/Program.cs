@@ -1,8 +1,8 @@
 ﻿using System;
-using Agent.Contrib.Notifications;
-using Agent.Contrib.Settings;
+using AGENT.Contrib.Notifications;
+using AGENT.Contrib.Settings;
 using Microsoft.SPOT;
-using Agent.Contrib.Face;
+using AGENT.Contrib.Face;
 
 namespace DigitalTimeWatchFace
 {

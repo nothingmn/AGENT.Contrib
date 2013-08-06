@@ -2,7 +2,7 @@ using System;
 using System.IO.Ports;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Communication.Channels
+namespace AGENT.Contrib.Communication.Channels
 {
     /// <summary>
     /// Responsible for converting raw inputs to object outputs

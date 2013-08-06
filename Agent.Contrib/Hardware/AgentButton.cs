@@ -1,4 +1,4 @@
-namespace Agent.Contrib.Hardware
+namespace AGENT.Contrib.Hardware
 {
     public enum AgentButton
     {

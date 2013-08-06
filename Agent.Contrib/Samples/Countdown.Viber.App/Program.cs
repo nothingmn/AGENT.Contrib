@@ -1,9 +1,9 @@
 ﻿using System;
-using Agent.Contrib.Communication.Channels;
-using Agent.Contrib.Drawing;
-using Agent.Contrib.Hardware;
-using Agent.Contrib.UI;
-using Agent.Contrib.Util;
+using AGENT.Contrib.Communication.Channels;
+using AGENT.Contrib.Drawing;
+using AGENT.Contrib.Hardware;
+using AGENT.Contrib.UI;
+using AGENT.Contrib.Util;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using Microsoft.SPOT.Presentation;
@@ -25,7 +25,7 @@ namespace Countdown.Viber.App
             menu.OnMenuItemClicked += menu_OnMenuItemClicked;
             menu.AutoRenderOnButtonPress = true;
             cdt.Change(Timeout.Infinite, Timeout.Infinite);
-            Agent.Contrib.Hardware.Viberate.ViberateProvider.Current.Viberate(5);
+            AGENT.Contrib.Hardware.Viberate.ViberateProvider.Current.Viberate(5);
             ShowMenu();
 
         }

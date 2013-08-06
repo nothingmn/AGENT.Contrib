@@ -1,7 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib.Drawing
+namespace AGENT.Contrib.Drawing
 {
     /// <summary>
     /// Poly Fill types

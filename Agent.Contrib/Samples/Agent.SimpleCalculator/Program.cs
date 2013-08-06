@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using Agent.Contrib.Hardware;
+using AGENT.Contrib.Hardware;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Presentation.Media;
 
@@ -12,7 +12,7 @@ namespace SimpleCalculator
 
         public static void Main()
         {
-            Agent.Contrib.Hardware.ButtonHelper.ButtonSetup = new Buttons[]{ Buttons.TopRight, Buttons.MiddleRight, Buttons.BottomRight};
+            AGENT.Contrib.Hardware.ButtonHelper.ButtonSetup = new Buttons[]{ Buttons.TopRight, Buttons.MiddleRight, Buttons.BottomRight};
 
             var screen = new Bitmap(Bitmap.MaxWidth, Bitmap.MaxHeight);
 

@@ -1,11 +1,11 @@
 using System;
-using Agent.Contrib.Drawing;
-using Agent.Contrib.Settings;
+using AGENT.Contrib.Drawing;
+using AGENT.Contrib.Settings;
 using Microsoft.SPOT;
 
-namespace Agent.Contrib
+namespace AGENT.Contrib
 {
-    public class AGENT
+    public class Device
     {
         
         public static int Size = 128;

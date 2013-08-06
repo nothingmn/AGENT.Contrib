@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+
+  <PropertyGroup>
+    <!-- Path where the solution file is located (.sln) -->
+    <SolutionFolder>$(MSBuildProjectDirectory)\..\</SolutionFolder>
+    <SolutionPath>$(SolutionFolder)\$safeprojectname$.sln</SolutionPath>
+    <ProductName>$safeprojectname$</ProductName>
+    <ProjectFolder>$(MSBuildProjectDirectory)\</ProjectFolder>
+    <PackageFolder>$(SolutionFolder)\Package\</PackageFolder>
+    <v1Folder>$(PackageFolder)\v1\</v1Folder>
+    <FinalOutputFolder>$(SolutionFolder)\Builds\</FinalOutputFolder>
+    <ReleaseFolder>$(ProjectFolder)\Bin\Release\be\</ReleaseFolder>
+    <ReleaseApp>$(ProjectFolder)\Bin\Release\be\$safeprojectname$.exe</ReleaseApp>
+  </PropertyGroup>
+  <ItemGroup>
+    <ReleaseApplicationFiles Include="$(ReleaseFolder)\**\*.*" Exclude="$(ReleaseFolder)\*vshost.exe*" />
+  </ItemGroup>
+  
+  <Target Name="Build">
+    <Message Text="Building $(ProjectName) Release Build" />
+    <MSBuild Projects="$(SolutionPath)" Targets="Clean" Properties="Configuration=Release"/>
+    <MSBuild Projects="$(SolutionPath)" Targets="Build" Properties="Configuration=Release"/>
+    <Message Text="$(ProjectName) Release Build Complete!" />
+    <CallTarget Targets="RetrieveIdentities" />
+    <CallTarget Targets="PackageToZip" />
+  </Target>
+
+  <Target Name="RetrieveIdentities">
+    <GetAssemblyIdentity AssemblyFiles="$(ReleaseApp)">
+      <Output TaskParameter="Assemblies" ItemName="MyAssemblyIdentities"/>
+    </GetAssemblyIdentity>
+  </Target>
+
+  <Target Name="PackageToZip">
+    
+    <MakeDir Directories="$(PackageFolder)"/>
+    <MakeDir Directories="$(v1Folder)"/>
+    <MakeDir Directories="$(FinalOutputFolder)"/>
+
+    <ItemGroup>
+      <ReleaseApplicationFiles Include="$(ReleaseFolder)\**\*.*" />
+    </ItemGroup>
+
+    <Copy
+    SourceFiles="$(ProjectFolder)\package.json"
+    DestinationFolder="$(PackageFolder)"
+    />
+    <Copy
+    SourceFiles="$(ProjectFolder)\logo.gif"
+    DestinationFolder="$(PackageFolder)"
+    />
+
+
+    <ItemGroup>
+      <FilesToPackage Include="$(PackageFolder)\**\*.*" />
+    </ItemGroup>
+
+    <Copy
+    SourceFiles="@(ReleaseApplicationFiles)"
+    DestinationFolder="$(v1Folder)"
+    />    
+    
+    <Zip 
+      Files="@(FilesToPackage)"
+      WorkingDirectory="$(PackageFolder)"
+      ZipFileName="$(FinalOutputFolder)\$(ProductName).%(MyAssemblyIdentities.Version).release.AGT"
+      ZipLevel="9" />
+
+  </Target>
+</Project>

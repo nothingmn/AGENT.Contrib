@@ -1,0 +1,19 @@
+﻿{
+  "package": {
+    "metadata": {
+      "id": "$safeprojectname$",
+	  "type":"face",
+      "version": "1.0.0",
+      "title": "$safeprojectname$",
+      "authors": "Author, Author1",
+      "owners": "Owner",
+      "licenseUrl": "http://www.agentwatches.com/license",
+      "projectUrl": "http://www.agentwatches.com/store/$safeprojectname$",
+      "requireLicenseAcceptance": "false",
+      "description": "A simple watch face for AGENT",
+      "language": "en-US",
+      "tags": "face, agent, time",
+	  "icon" : "logo.gif"
+    }
+  }
+}

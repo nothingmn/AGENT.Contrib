@@ -36,6 +36,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent.Menu", "Agent.Contrib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Countdown.Viber.App", "Agent.Contrib\Samples\Countdown.Viber.App\Countdown.Viber.App.csproj", "{1716ED7E-9C46-42C0-A43F-014B3088C628}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{B6E4C0AB-B39C-4383-BB6B-E371BD476FAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GifCompressor", "Tools\GifCompressor\GifCompressor.csproj", "{02DC17D0-39F6-449D-8FAC-0FEF17540666}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -136,8 +140,15 @@ Global
 		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1716ED7E-9C46-42C0-A43F-014B3088C628}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{02DC17D0-39F6-449D-8FAC-0FEF17540666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02DC17D0-39F6-449D-8FAC-0FEF17540666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02DC17D0-39F6-449D-8FAC-0FEF17540666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02DC17D0-39F6-449D-8FAC-0FEF17540666}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02DC17D0-39F6-449D-8FAC-0FEF17540666} = {B6E4C0AB-B39C-4383-BB6B-E371BD476FAD}
 	EndGlobalSection
 EndGlobal

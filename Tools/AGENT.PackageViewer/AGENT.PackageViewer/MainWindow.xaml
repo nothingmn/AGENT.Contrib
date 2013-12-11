@@ -1,0 +1,11 @@
+﻿<Window x:Class="AGENT.PackageViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AGENT Package Viewer" Height="508" Width="525" WindowStyle="ToolWindow" ResizeMode="NoResize">
+    <Grid Margin="0,0,12,0" >
+        <Button Content="Browse..." Command="{Binding ChoosePackage}" HorizontalAlignment="Left" Margin="420,15,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,19,0,0" TextWrapping="Wrap" Text="{Binding PackageSource, Mode=TwoWay}" VerticalAlignment="Top" Width="318"/>
+        <WebBrowser x:Name="WebView" Height="430" Margin="31,40,10,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

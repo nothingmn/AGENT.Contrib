@@ -80,10 +80,8 @@ namespace FunWithButtons
             string sb = "";
             foreach (Buttons b in listOfButtons)
             {
-                if (b == Buttons.BottomLeft) sb += "BL";
                 if (b == Buttons.BottomRight) sb += "BR";
                 if (b == Buttons.MiddleRight) sb += "MR";
-                if (b == Buttons.TopLeft) sb += "TL";
                 if (b == Buttons.TopRight) sb += "TR";
             }
             return sb;

@@ -13,7 +13,7 @@ namespace BatterySizesWatchFace
 
         public static void Main()
         {
-            ButtonHelper.ButtonSetup = new Buttons[]{ Buttons.TopRight, Buttons.BottomRight, Buttons.MiddleRight, Buttons.TopLeft };
+            ButtonHelper.ButtonSetup = new Buttons[]{ Buttons.TopRight, Buttons.BottomRight, Buttons.MiddleRight };
             ButtonHelper.Current.OnButtonPress += Current_OnButtonPress;
             watch = new WatchFace(face);
             watch.Start();

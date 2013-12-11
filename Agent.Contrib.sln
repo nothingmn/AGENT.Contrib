@@ -46,6 +46,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1bitter", "1bitter", "{B059
 		Tools\1bitter\README.MD = Tools\1bitter\README.MD
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Packaging", "Packaging", "{075A0006-7D7B-4A98-A448-417F5453502C}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\Packaging\package.json = Tools\Packaging\package.json
+		Tools\Packaging\Package.msbuild = Tools\Packaging\Package.msbuild
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project Templates", "Project Templates", "{8AF404A3-EB5E-4D2B-B602-81B19884F8BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AGENT.PackageViewer", "AGENT.PackageViewer", "{714856C1-B2FD-4EE3-A714-F81CB5A57E04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGENT.PackageViewer", "Tools\AGENT.PackageViewer\AGENT.PackageViewer\AGENT.PackageViewer.csproj", "{7C9472A6-7B5E-423A-A782-DA24FA6148D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -150,6 +162,10 @@ Global
 		{02DC17D0-39F6-449D-8FAC-0FEF17540666}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02DC17D0-39F6-449D-8FAC-0FEF17540666}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02DC17D0-39F6-449D-8FAC-0FEF17540666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C9472A6-7B5E-423A-A782-DA24FA6148D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C9472A6-7B5E-423A-A782-DA24FA6148D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C9472A6-7B5E-423A-A782-DA24FA6148D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C9472A6-7B5E-423A-A782-DA24FA6148D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,5 +173,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{02DC17D0-39F6-449D-8FAC-0FEF17540666} = {B6E4C0AB-B39C-4383-BB6B-E371BD476FAD}
 		{B0591767-E80F-4396-8D73-F5336F786CBD} = {B6E4C0AB-B39C-4383-BB6B-E371BD476FAD}
+		{075A0006-7D7B-4A98-A448-417F5453502C} = {B6E4C0AB-B39C-4383-BB6B-E371BD476FAD}
+		{8AF404A3-EB5E-4D2B-B602-81B19884F8BC} = {B6E4C0AB-B39C-4383-BB6B-E371BD476FAD}
+		{714856C1-B2FD-4EE3-A714-F81CB5A57E04} = {B6E4C0AB-B39C-4383-BB6B-E371BD476FAD}
+		{7C9472A6-7B5E-423A-A782-DA24FA6148D7} = {714856C1-B2FD-4EE3-A714-F81CB5A57E04}
 	EndGlobalSection
 EndGlobal
